@@ -1,4 +1,4 @@
-from bottle import route, run, template, get, error, request, response, redirect, static_file, default_app
+from bottle import route, run, template, get, error, request, response, redirect, static_file, default_application
 #import bottle
 
 #Parts
@@ -8,9 +8,9 @@ from user import *
 
 db = Storage()
 
-app = bottle.Bottle()
+application = bottle.Bottle()
 
-@app.get("/")
+@application.get("/")
 def index():
 	request.headers.get('cookie')
 	response.add_header('RID', '124')
@@ -18,12 +18,12 @@ def index():
 	return template("index.tpl",name="dario",questionList=questionList)
 
 
-@app.error(404)
+@application.error(404)
 def error404(error):
     return 'Nothing here, sorry'
 
 
-@app.route('/static/<filepath:path>')
+@application.route('/static/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath,root="./static")
 
@@ -32,7 +32,7 @@ def server_static(filepath):
 
 ################ ANSWERS ##########################
 
-@app.post("/question/<title>/answer")
+@application.post("/question/<title>/answer")
 def postAnswer(title):
 	author = ""
 	answer = request.forms.get('answer')
@@ -40,7 +40,7 @@ def postAnswer(title):
 	redirect("/question/"+title) 
 
 ############ comments #########################
-@app.post("/question/<title>/comment")
+@application.post("/question/<title>/comment")
 def postComment(title):
 	author = ""
 	ident = request.forms.get("ident")
@@ -51,11 +51,11 @@ def postComment(title):
 
 
 ########### questions ########################
-@app.get("/new-question")
+@application.get("/new-question")
 def getNewQuestion():
 	return  (template("newQuestion.tpl",tags=['nice','novo']))
 
-@app.post("/new-question")
+@application.post("/new-question")
 def postNewQuestion():
 	title = request.forms.get('title')
 	content = request.forms.get('content')
@@ -64,32 +64,32 @@ def postNewQuestion():
 	db.addNewQuestion(title,content,tags,author)
 	redirect("/question/"+title)
 
-@app.get("/question/<title>")
+@application.get("/question/<title>")
 def getQuestion(title):
 	questionData = db.getQuestion(title)
 	return template('question.tpl',questionData=questionData)
 
 ################# USER ########################
-@app.get("/login")
+@application.get("/login")
 def login():
 	if isLogin():
 		redirect("/")
 	else:
 		return template('login')
 
-@app.get("/user/<username>")
+@application.get("/user/<username>")
 def viewUser(username):
 	print "view"
 
 
 ################ VOTES ####################
-@app.get("/question/<title>/<answer>/up")
+@application.get("/question/<title>/<answer>/up")
 def voteUp(title,answer):
 	votes = db.voteUp(title, answer)
 	redirect("/question/"+title)
 
 
-@app.get("/question/<title>/<answer>/down")
+@application.get("/question/<title>/<answer>/down")
 def voteDown(title,answer):
 	votes = db.voteDown(title, answer)
 	redirect("/question/"+title)
@@ -98,18 +98,18 @@ def voteDown(title,answer):
 ############################################################
 
 #LOCAL
-#app.run(host='localhost',port=8888,reloader=True)
+#application.run(host='localhost',port=8888,reloader=True)
 
-#AppEngine
-#app.run(server='gae')
+#applicationEngine
+#application.run(server='gae')
 
 #Openshift
 # This must be added in order to do correct path lookups for the views
 import os
 from bottle import TEMPLATE_PATH
-TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
+TEMPLATE_PATH.applicationend(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
     'runtime/repo/wsgi/views/')) 
 
-app=default_app()
+application=default_application()
 
 
