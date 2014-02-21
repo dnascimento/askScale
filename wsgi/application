@@ -10,4 +10,4 @@ try:
 except IOError:
     pass
 
-from main import application
+from main import app
