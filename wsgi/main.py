@@ -1,6 +1,11 @@
 from bottle import route, run, template, get, post, error, request, response, redirect, static_file, default_app
 from storage import *
 
+import os
+from bottle import TEMPLATE_PATH
+TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
+    'app-root/runtime/repo/wsgi/views/')) 
+
 # #import bottle
 
 # #Parts
@@ -104,12 +109,7 @@ def voteDown(title,answer):
 # #applicationEngine
 # #application.run(server='gae')
 
-# #Openshift
-# This must be added in order to do correct path lookups for the views
-import os
-from bottle import TEMPLATE_PATH
-TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
-    'runtime/repo/wsgi/views/')) 
+
 
 application=default_app()
 
