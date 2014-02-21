@@ -8,7 +8,7 @@ from user import *
 
 db = Storage()
 
-application = bottle.Bottle()
+app = bottle.Bottle()
 
 @app.get("/")
 def index():
