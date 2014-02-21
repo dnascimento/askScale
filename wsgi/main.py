@@ -8,7 +8,7 @@ from user import *
 
 db = Storage()
 
-app = bottle.Bottle()
+application = bottle.Bottle()
 
 @app.get("/")
 def index():
@@ -110,6 +110,6 @@ from bottle import TEMPLATE_PATH
 TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
     'runtime/repo/wsgi/views/')) 
 
-#app=default_app()
+app=default_app()
 
 
