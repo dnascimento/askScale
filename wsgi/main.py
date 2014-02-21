@@ -1,4 +1,4 @@
-from bottle import route, run, template, get, error, request, response, redirect, static_file, default_app
+from bottle import route, run, template, get, post, error, request, response, redirect, static_file, default_app
 from storage import *
 
 # #import bottle
@@ -99,7 +99,7 @@ def voteDown(title,answer):
 # ############################################################
 
 # #LOCAL
-# #application.run(host='localhost',port=8888,reloader=True)
+#run(host='localhost',port=8888,reloader=True)
 
 # #applicationEngine
 # #application.run(server='gae')
