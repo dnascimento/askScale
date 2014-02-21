@@ -1,8 +1,9 @@
 from bottle import route, run, template, get, error, request, response, redirect, static_file, default_app
+from storage import *
+
 # #import bottle
 
 # #Parts
-# from storage import *
 # from votes import *
 # from user import *
 
