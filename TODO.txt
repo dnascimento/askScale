@@ -1,0 +1,13 @@
+User Session:
+https://github.com/linsomniac/bottlesession
+http://beaker.readthedocs.org/en/latest/
+http://cork.firelet.net/
+
+
+
+Edit and Delete:
+	- Comment
+	- Answer
+
+
+Handle question not exists
