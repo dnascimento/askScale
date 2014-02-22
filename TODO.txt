@@ -5,9 +5,4 @@ http://cork.firelet.net/
 
 
 
-Edit and Delete:
-	- Comment
-	- Answer
-
-
 Handle question not exists

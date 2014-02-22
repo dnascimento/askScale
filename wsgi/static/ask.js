@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function(){load()});
+
+function load(){
 	$(".questionDelete").click(function(){		
 		questionTitle = getQuestionTitle();
 		$.ajax({
@@ -26,7 +28,7 @@ $(document).ready(function(){
 			url = "/answer";
 			data = {"answerID":answerID};
 		}
-		send(url,data,'DELETE');
+		send(url,data,'DELETE'); 
 	});
 
 	$(".up").click(function(){
@@ -55,7 +57,7 @@ $(document).ready(function(){
 		$(this).removeClass().addClass("saveComment");
 		$(".saveComment").click(function(){saveNewComment(this)});
 	});
-});
+}
 
 
 
@@ -115,21 +117,13 @@ function send(url,data,type){
 			alert(errorThrown);
 		},
 		success: function(data, textStatus, jqXHR ){
-			window.location.href = "./"+questionTitle;
+			$("html").html(data);
+			load();
+			//window.location.href = "./"+questionTitle;
 		}
 	});
 }
 
 
 
-//up and down classes
 
-/*
-
-				<form action="{{title}}/comment" method="post">
-					<input name="answerID"type="hidden" value="{{answer.answerID}}"/>
-					<textarea name="text" cols="40" rows="5"></textarea>
-					<input type="submit" value="Comment"/>
-				</form>
-
-*/

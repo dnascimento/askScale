@@ -1,4 +1,5 @@
 from comment import Comment
+import askExceptions
 
 class Answer:
 	answerCounter = 0
@@ -15,7 +16,7 @@ class Answer:
 		for comment in self.comments:
 			if comment.commentID == commentID:
 				return comment
-		return None
+		raise askExceptions.NotExist('comment',"Unknown Comment:"+str(commentID))
 
 	def addComment(self,comment,author):
 		comm = Comment(comment, author)
@@ -23,11 +24,8 @@ class Answer:
 
 	def deleteComment(self,commentID):
 		comment = self.getComment(commentID)
-		if comment is not None:
-			self.comments.remove(comment)
-		else:
-			pass
-			#TODO: Throw exception
+		self.comments.remove(comment)
+
 
 	def updateComment(self,commentID,text):
 		self.getComment(commentID).update(text)

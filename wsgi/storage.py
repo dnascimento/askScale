@@ -1,4 +1,5 @@
 from question import Question
+import askExceptions
 #Singleton
 class Storage:
 	questions = []
@@ -22,7 +23,7 @@ class Storage:
 		for question in Storage.questions:
 			if question.questionID == questionID:
 				return question
-		return None
+		raise askExceptions.NotExist('question',"Unknown Question:"+str(questionID))
 
 	def deleteQuestion(self,questionID):
 		quest = self.getQuestion(questionID)

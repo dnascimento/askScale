@@ -1,4 +1,7 @@
 from answer import Answer
+import askExceptions
+
+
 
 class Question:
 	questionCounter = 0
@@ -18,7 +21,7 @@ class Question:
 		for answer in self.answers:
 			if str(answer.answerID) == str(answerID):
 				return answer
-		return None
+		raise askExceptions.NotExist('answer',"Unknown Answer: "+str(answerID))
 
 
 	def addAnswer(self,author, text):
@@ -31,7 +34,7 @@ class Question:
 			if answer.answerID == answerID:
 				self.answers.remove(answer)
 				return None
-		#TODO Through exception - No answer
+		raise askExceptions.NotExist('answer',"Unknown Answer: "+str(answerID))
 
 	def updateAnswer(self,answerID,text):
 		self.getAnswer(answerID).update(text)

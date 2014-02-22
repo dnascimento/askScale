@@ -1,5 +1,6 @@
 from bottle import route, run, template, get, post, error, request, put, response, delete, redirect, static_file, default_app
 from storage import *
+import askExceptions
 
 
 #OPENSHIFT
@@ -27,6 +28,9 @@ def index():
 def error404(error):
     return 'Nothing here, sorry'
 
+def error(e):
+	return template("error.tpl",error=e.error)
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -50,12 +54,19 @@ def postNewQuestion():
 
 @delete("/question/<questionID>/<questionTitle>")
 def deleteQuestion(questionTitle,questionID):
-	db.deleteQuestion(questionID)
+	try:
+		db.deleteQuestion(questionID)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/")
 
 @get("/question/<questionID>/<questionTitle>")
 def getQuestion(questionTitle,questionID):
-	questionData = db.getQuestion(questionID)
+	try:
+		questionData = db.getQuestion(questionID)
+	except askExceptions.NotExist as e:
+		return error(e)
+
 	return template('question.tpl',questionData=questionData)
 
 
@@ -67,7 +78,10 @@ def getQuestion(questionTitle,questionID):
 def postAnswer(questionTitle,questionID):
 	author = ""
 	text = request.forms.get('text')
-	db.addAnswer(questionID,text,author)
+	try:
+		db.addAnswer(questionID,text,author)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
@@ -76,14 +90,20 @@ def updateAnswer(questionTitle,questionID):
 	answerId = request.forms.get('answerID')
 	text = request.forms.get('text')
 	print "update"+str(text)
-	db.updateAnswer(questionID,answerId,text)
+	try:
+		db.updateAnswer(questionID,answerId,text)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
 @delete("/question/<questionID>/<questionTitle>/answer")
 def deleteAnswer(questionTitle,questionID):
 	answerID = request.forms.get('answerID')
-	db.delAnswer(questionID,answerID)
+	try:
+		db.delAnswer(questionID,answerID)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
@@ -93,7 +113,10 @@ def postComment(questionTitle,questionID):
 	author = ""
 	answerID = request.forms.get('answerID')
 	text = request.forms.get('text')
-	db.addComment(questionID,answerID,text,author)
+	try:
+		db.addComment(questionID,answerID,text,author)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 @put("/question/<questionID>/<questionTitle>/comment")
@@ -101,14 +124,20 @@ def updateComment(questionTitle,questionID):
 	answerID = request.forms.get('answerID')
 	commentID = request.forms.get("commentID")
 	text = request.forms.get('text')
-	db.updateComment(questionID,answerID,commentID,text)
+	try:
+		db.updateComment(questionID,answerID,commentID,text)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 @delete("/question/<questionID>/<questionTitle>/comment")
 def deleteComment(questionTitle,questionID):
 	commentID = request.forms.get("commentID")
 	answerID = request.forms.get('answerID')
-	db.deleteComment(questionID,answerID,commentID)
+	try:
+		db.deleteComment(questionID,answerID,commentID)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
@@ -131,14 +160,20 @@ def viewUser(username):
 @post("/question/<questionID>/<questionTitle>/up")
 def voteUp(questionTitle,questionID):
 	answerID = request.forms.get("answerID")
-	votes = db.voteUp(questionID, answerID)
+	try:
+		votes = db.voteUp(questionID, answerID)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
 @post("/question/<questionID>/<questionTitle>/down")
 def voteDown(questionTitle,questionID):
 	answerID = request.forms.get("answerID")
-	votes = db.voteDown(questionID, answerID)
+	try:
+		votes = db.voteDown(questionID, answerID)
+	except askExceptions.NotExist as e:
+		return error(e)
 	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
