@@ -3,7 +3,7 @@
 			<input name="title" type="text"/>
 			<br>
 			<label>Add Details</label>
-			<textarea name="content" cols="40" rows="10"></textarea>
+			<textarea name="text" cols="40" rows="10"></textarea>
 			<br>
 			<label>tags</label>
 			<select name="tags" multiple>

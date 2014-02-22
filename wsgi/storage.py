@@ -1,56 +1,4 @@
-
-class Comment:
-	def __init__(self,comment,author):
-		self.comment = comment
-		self.author = author
-
-class Answer:
-	answerCounter = 0
-	def __init__(self,author,content):
-		Answer.answerCounter += 1
-		self.ident = Answer.answerCounter
-		self.author = author
-		self.votes = 0
-		self.content = content
-		self.comments = []
-
-	def addComment(self,comment,author):
-		comm = Comment(comment, author)
-		self.comments.append(comm)
-
-	def voteUp(self):
-		self.votes += 1
-
-	def voteDown(self):
-		self.votes -= 1
-
-
-class Question:
-	def __init__(self,title,content,tags,author):
-		self.title = title
-		self.tags = tags
-		self.answers = []
-		self.question = Answer(author, content)
-
-	def addAnswer(self,author,content):
-		ans = Answer(author, content)
-		self.answers.append(ans)
-
-	def getAnswer(self,ident):
-		if str(self.question.ident) == str(ident):
-			return self.question
-
-		for answer in self.answers:
-			if str(answer.ident) == str(ident):
-				return answer
-		return None
-
-	def voteUp(self,answerID):
-		self.getAnswer(answerID).voteUp()
-
-	def voteDown(self,answerID):
-		self.getAnswer(answerID).voteDown()
-
+from question import Question
 #Singleton
 class Storage:
 	questions = []
@@ -61,42 +9,57 @@ class Storage:
 			cls._instance = super(Singleton,cls).__new__(cls, *args, **kwargs)
 		return cls._instance
 
-	def addNewQuestion(self,title,content,tags,author):
-		quest = Question(title, content, tags,author)
+
+
+	############### Question #####################
+	def addNewQuestion(self,questionTitle,text,tags,author):
+		quest = Question(questionTitle, text, tags,author)
 		Storage.questions.append(quest)
 		return quest
 
 
-	def getQuestion(self,title):
+	def getQuestion(self,questionID):
 		for question in Storage.questions:
-			if question.title == title:
+			if question.questionID == questionID:
 				return question
 		return None
 
+	def deleteQuestion(self,questionID):
+		quest = self.getQuestion(questionID)
+		quest.delete()
+		Storage.questions.remove(quest)
 
-	def addAnswer(self,title,answer,author):
-		quest = self.getQuestion(title)
-		quest.addAnswer(author, answer)
+		
+	############### Answer #####################
+	def addAnswer(self,questionID,text,author):
+		self.getQuestion(questionID).addAnswer(author, text)
 
+	def delAnswer(self,questionID,answerID):
+		self.getQuestion(questionID).deleteAnswer(answerID)
 
-
-	def voteUp(self,title,answer):
-		quest = self.getQuestion(title)
-		quest.voteUp(answer)
-
-
-
-	#######################################
-	def voteDown(self,title,answer):
-		quest = self.getQuestion(title)
-		quest.voteDown(answer)
-
-	def addComment(self,ident,title,answer,comment,author):
-		quest = self.getQuestion(title)
-		ans = quest.getAnswer(ident)
-		ans.addComment(comment,author)
+	def updateAnswer(self,questionID,answerID,text):
+		self.getQuestion(questionID).updateAnswer(answerID,text)
 
 
-	##########################################
+
+	############### Vote #####################
+	def voteUp(self,questionID,answerID):
+		self.getQuestion(questionID).voteUp(answerID)
+
+	def voteDown(self,questionID,answerID):
+		self.getQuestion(questionID).voteDown(answerID)
+
+
+	############### Comment #####################
+	def addComment(self,questionID,answerID,text,author):
+		self.getQuestion(questionID).addComment(answerID,text,author)
+
+	def deleteComment(self,questionID,answerID,commentID):
+		self.getQuestion(questionID).deleteComment(answerID,commentID)
+
+	def updateComment(self,questionID,answerID,commentID,text):
+		self.getQuestion(questionID).updateComment(answerID,commentID,text)
+
+	############### List #####################
 	def getQuestionList(self,maxQuestions):
 		return Storage.questions

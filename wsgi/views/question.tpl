@@ -1,5 +1,6 @@
-<div class="questionWrapper">
+<div class="questionWrapper" question-id="{{questionData.questionID}}" question-title="{{questionData.title}}">
 	<h1>{{questionData.title}}</h1>
+	<button class="questionDelete">Delete</button>
 	<ul>
 		%for tag in questionData.tags:
 			<li class="tag">{{tag}}</li>
@@ -13,7 +14,7 @@
 		%include answer answer=answer , title=questionData.title
 	%end
 	<form action="{{questionData.title}}/answer" method="post">
-		<textarea name="answer" cols="40" rows="5"></textarea>
+		<textarea name="text" cols="40" rows="5"></textarea>
 		<input type="submit" value="Answer"/>
 	</form>
 </div>

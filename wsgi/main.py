@@ -1,19 +1,18 @@
-from bottle import route, run, template, get, post, error, request, response, redirect, static_file, default_app
+from bottle import route, run, template, get, post, error, request, put, response, delete, redirect, static_file, default_app
 from storage import *
 
-import os
-from bottle import TEMPLATE_PATH
-TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
-    'app-root/runtime/repo/wsgi/views/')) 
 
-# #import bottle
+#OPENSHIFT
+# import os
+# from bottle import TEMPLATE_PATH
+# TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
+#     'app-root/runtime/repo/wsgi/views/')) 
 
-# #Parts
-# from votes import *
-# from user import *
+
 
 db = Storage()
-
+#GAE - Force bootle
+#import bottle
 # application = bottle.Bottle()
 
 @get("/")
@@ -33,29 +32,6 @@ def error404(error):
 def server_static(filepath):
 	return static_file(filepath,root="./static")
 
-
-
-
-################ ANSWERS ##########################
-
-@post("/question/<title>/answer")
-def postAnswer(title):
-	author = ""
-	answer = request.forms.get('answer')
-	db.addAnswer(title,answer,author)
-	redirect("/question/"+title) 
-
-############ comments #########################
-@post("/question/<title>/comment")
-def postComment(title):
-	author = ""
-	ident = request.forms.get("ident")
-	answer = request.forms.get('answer')
-	comment = request.forms.get('comment')
-	db.addComment(ident,title,answer,comment,author)
-	redirect("/question/"+title) 
-
-
 ########### questions ########################
 @get("/new-question")
 def getNewQuestion():
@@ -63,17 +39,80 @@ def getNewQuestion():
 
 @post("/new-question")
 def postNewQuestion():
-	title = request.forms.get('title')
-	content = request.forms.get('content')
-	tags = request.forms.getlist('tags')
 	author = ""
-	db.addNewQuestion(title,content,tags,author)
-	redirect("/question/"+title)
+	questionTitle = request.forms.get('title')
+	text = request.forms.get('text')
+	tags = request.forms.getlist('tags')
+	question = db.addNewQuestion(questionTitle,text,tags,author)
+	print question.title
+	redirect("/question/"+question.questionID+"/"+question.title)
 
-@get("/question/<title>")
-def getQuestion(title):
-	questionData = db.getQuestion(title)
+
+@delete("/question/<questionID>/<questionTitle>")
+def deleteQuestion(questionTitle,questionID):
+	db.deleteQuestion(questionID)
+	redirect("/")
+
+@get("/question/<questionID>/<questionTitle>")
+def getQuestion(questionTitle,questionID):
+	questionData = db.getQuestion(questionID)
 	return template('question.tpl',questionData=questionData)
+
+
+
+
+################ ANSWERS ##########################
+
+@post("/question/<questionID>/<questionTitle>/answer")
+def postAnswer(questionTitle,questionID):
+	author = ""
+	text = request.forms.get('text')
+	db.addAnswer(questionID,text,author)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+
+@put("/question/<questionID>/<questionTitle>/answer")
+def updateAnswer(questionTitle,questionID):
+	answerId = request.forms.get('answerID')
+	text = request.forms.get('text')
+	print "update"+str(text)
+	db.updateAnswer(questionID,answerId,text)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+
+@delete("/question/<questionID>/<questionTitle>/answer")
+def deleteAnswer(questionTitle,questionID):
+	answerID = request.forms.get('answerID')
+	db.delAnswer(questionID,answerID)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+
+############ comments #########################
+@post("/question/<questionID>/<questionTitle>/comment")
+def postComment(questionTitle,questionID):
+	author = ""
+	answerID = request.forms.get('answerID')
+	text = request.forms.get('text')
+	db.addComment(questionID,answerID,text,author)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+@put("/question/<questionID>/<questionTitle>/comment")
+def updateComment(questionTitle,questionID):
+	answerID = request.forms.get('answerID')
+	commentID = request.forms.get("commentID")
+	text = request.forms.get('text')
+	db.updateComment(questionID,answerID,commentID,text)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+@delete("/question/<questionID>/<questionTitle>/comment")
+def deleteComment(questionTitle,questionID):
+	commentID = request.forms.get("commentID")
+	answerID = request.forms.get('answerID')
+	db.deleteComment(questionID,answerID,commentID)
+	redirect("/question/"+questionID+"/"+questionTitle) 
+
+
+
 
 ################# USER ########################
 @get("/login")
@@ -89,28 +128,30 @@ def viewUser(username):
 
 
 ################ VOTES ####################
-@get("/question/<title>/<answer>/up")
-def voteUp(title,answer):
-	votes = db.voteUp(title, answer)
-	redirect("/question/"+title)
+@post("/question/<questionID>/<questionTitle>/up")
+def voteUp(questionTitle,questionID):
+	answerID = request.forms.get("answerID")
+	votes = db.voteUp(questionID, answerID)
+	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
-@get("/question/<title>/<answer>/down")
-def voteDown(title,answer):
-	votes = db.voteDown(title, answer)
-	redirect("/question/"+title)
+@post("/question/<questionID>/<questionTitle>/down")
+def voteDown(questionTitle,questionID):
+	answerID = request.forms.get("answerID")
+	votes = db.voteDown(questionID, answerID)
+	redirect("/question/"+questionID+"/"+questionTitle) 
 
 
 # ############################################################
 
 # #LOCAL
-#run(host='localhost',port=8888,reloader=True)
+run(host='localhost',port=8888,reloader=True)
 
 # #applicationEngine
 # #application.run(server='gae')
 
 
-
+#openshift
 application=default_app()
 
 

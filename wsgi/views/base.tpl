@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/static/ask.css"/>
+	<script src="/static/jquery.js"></script>
 	<script src="/static/ask.js"></script>
 	<title>{{"AskINESC"+title or 'No title'}}</title>
 </head>

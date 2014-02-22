@@ -1,20 +1,18 @@
-<!-- 
-answer = {id,content,author, votes, comments[]}
-comment = {comment,author}
-
--->
-
-<div class="answerArea">
+<div class="answerArea" answer-id="{{answer.answerID}}">
 	<div class="vote">
-		<a href="{{title}}/{{answer.ident}}/up"><img src="/static/up.png"/></a>
+		<img class="up" src="/static/up.png"/>
 		<p>{{answer.votes}}</p>
-		<a href="{{title}}/{{answer.ident}}/down"><img src="/static/down.png"/></a>
+		<img class="down" src="/static/down.png"/>
 	</div>
 	<div class="answerContent">
 		<div>
-			<div>
-				<p>{{answer.content}}</p>
-			</div>
+			<p>{{answer.text}}</p>
+			%if answer.isQuestion:
+				<button class="edit">Edit Question</button>
+			%else:
+				<button class="delete">Delete</button>
+				<button class="edit">Edit</button>
+			%end
 			<div class="author">
 				<a href="/user/{{answer.author}}"><h4>{{answer.author}}</h4></a>
 			</div>
@@ -22,17 +20,15 @@ comment = {comment,author}
 		<div class="commentsArea">
 			<h3>Comments</h3>
 				%for comment in answer.comments:
-					<div class="comment">
-						<p>{{comment.comment}}</p>
+					<div class="comment" comment-id="{{comment.commentID}}">
+						<p>{{comment.text}}</p>
+						<button class="delete">Delete</button>
+						<button class="edit">Edit</button>
 						<a href="/user/{{comment.author}}">{{comment.author}}</a>
 					</div>
 					<hr>
 				%end
-				<form action="{{title}}/comment" method="post">
-					<input name="ident"type="hidden" value="{{answer.ident}}"/>
-					<textarea name="comment" cols="40" rows="5"></textarea>
-					<input type="submit" value="Comment"/>
-				</form>
+				<button class="newComment">Comment</button>
 		</div>
 	</div>
 </div>
