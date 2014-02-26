@@ -1,9 +1,10 @@
+import hashlib
 
 class Comment:
-	commentCounter = 0
-	def __init__(self,text,author):
-		Comment.commentCounter += 1
-		self.commentID = str(Comment.commentCounter)
+	def __init__(self,text,author,answerID):
+		m = hashlib.md5()
+		m.update(text+author+answerID)
+		self.commentID = m.hexdigest()
 		self.text = text
 		self.author = author
 	def delete(self):

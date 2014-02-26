@@ -4,14 +4,11 @@ import askExceptions
 
 
 class Question:
-	questionCounter = 0
 	def __init__(self,title,text,tags,author):
-		Question.questionCounter += 1
-		self.questionID = str(Question.questionCounter)
 		self.title = title
 		self.tags = tags
 		self.answers = []
-		self.question = Answer(author, text,True)
+		self.question = Answer(author, text,title,True)
 
 	############### Answer #####################
 	def getAnswer(self,answerID):
@@ -25,7 +22,7 @@ class Question:
 
 
 	def addAnswer(self,author, text):
-		ans = Answer(author, text,False)
+		ans = Answer(author, text, self.title, False)
 		self.answers.append(ans)
 
 

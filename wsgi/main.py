@@ -1,7 +1,7 @@
 from bottle import route, run, template, get, post, error, request, put, response, delete, redirect, static_file, default_app
 from storage import *
 import askExceptions
-
+import hashlib
 
 #OPENSHIFT
 # import os
@@ -47,23 +47,24 @@ def postNewQuestion():
 	questionTitle = request.forms.get('title')
 	text = request.forms.get('text')
 	tags = request.forms.getlist('tags')
-	question = db.addNewQuestion(questionTitle,text,tags,author)
-	print question.title
-	redirect("/question/"+question.questionID+"/"+question.title)
-
-
-@delete("/question/<questionID>/<questionTitle>")
-def deleteQuestion(questionTitle,questionID):
 	try:
-		db.deleteQuestion(questionID)
+		question = db.addNewQuestion(questionTitle,text,tags,author)
+		redirect("/question/"+question.title)
+	except askExceptions.NotExist as e:
+		return error(e)
+
+@delete("/question/<questionTitle>")
+def deleteQuestion(questionTitle):
+	try:
+		db.deleteQuestion(questionTitle)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/")
 
-@get("/question/<questionID>/<questionTitle>")
-def getQuestion(questionTitle,questionID):
+@get("/question/<questionTitle>")
+def getQuestion(questionTitle):
 	try:
-		questionData = db.getQuestion(questionID)
+		questionData = db.getQuestion(questionTitle)
 	except askExceptions.NotExist as e:
 		return error(e)
 
@@ -74,71 +75,71 @@ def getQuestion(questionTitle,questionID):
 
 ################ ANSWERS ##########################
 
-@post("/question/<questionID>/<questionTitle>/answer")
-def postAnswer(questionTitle,questionID):
+@post("/question/<questionTitle>/answer")
+def postAnswer(questionTitle):
 	author = ""
 	text = request.forms.get('text')
 	try:
-		db.addAnswer(questionID,text,author)
+		db.addAnswer(questionTitle,text,author)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
-@put("/question/<questionID>/<questionTitle>/answer")
-def updateAnswer(questionTitle,questionID):
+@put("/question/<questionTitle>/answer")
+def updateAnswer(questionTitle):
 	answerId = request.forms.get('answerID')
 	text = request.forms.get('text')
 	print "update"+str(text)
 	try:
-		db.updateAnswer(questionID,answerId,text)
+		db.updateAnswer(questionTitle,answerId,text)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
-@delete("/question/<questionID>/<questionTitle>/answer")
-def deleteAnswer(questionTitle,questionID):
+@delete("/question/<questionTitle>/answer")
+def deleteAnswer(questionTitle):
 	answerID = request.forms.get('answerID')
 	try:
-		db.delAnswer(questionID,answerID)
+		db.delAnswer(questionTitle,answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
 ############ comments #########################
-@post("/question/<questionID>/<questionTitle>/comment")
-def postComment(questionTitle,questionID):
+@post("/question/<questionTitle>/comment")
+def postComment(questionTitle):
 	author = ""
 	answerID = request.forms.get('answerID')
 	text = request.forms.get('text')
 	try:
-		db.addComment(questionID,answerID,text,author)
+		db.addComment(questionTitle,answerID,text,author)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
-@put("/question/<questionID>/<questionTitle>/comment")
-def updateComment(questionTitle,questionID):
+@put("/question/<questionTitle>/comment")
+def updateComment(questionTitle):
 	answerID = request.forms.get('answerID')
 	commentID = request.forms.get("commentID")
 	text = request.forms.get('text')
 	try:
-		db.updateComment(questionID,answerID,commentID,text)
+		db.updateComment(questionTitle,answerID,commentID,text)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
-@delete("/question/<questionID>/<questionTitle>/comment")
-def deleteComment(questionTitle,questionID):
+@delete("/question/<questionTitle>/comment")
+def deleteComment(questionTitle):
 	commentID = request.forms.get("commentID")
 	answerID = request.forms.get('answerID')
 	try:
-		db.deleteComment(questionID,answerID,commentID)
+		db.deleteComment(questionTitle,answerID,commentID)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
 
@@ -157,24 +158,24 @@ def viewUser(username):
 
 
 ################ VOTES ####################
-@post("/question/<questionID>/<questionTitle>/up")
-def voteUp(questionTitle,questionID):
+@post("/question/<questionTitle>/up")
+def voteUp(questionTitle):
 	answerID = request.forms.get("answerID")
 	try:
-		votes = db.voteUp(questionID, answerID)
+		votes = db.voteUp(questionTitle, answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
-@post("/question/<questionID>/<questionTitle>/down")
-def voteDown(questionTitle,questionID):
+@post("/question/<questionTitle>/down")
+def voteDown(questionTitle):
 	answerID = request.forms.get("answerID")
 	try:
-		votes = db.voteDown(questionID, answerID)
+		votes = db.voteDown(questionTitle, answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
-	redirect("/question/"+questionID+"/"+questionTitle) 
+	redirect("/question/"+questionTitle) 
 
 
 # ############################################################

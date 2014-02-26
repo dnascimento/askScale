@@ -1,4 +1,4 @@
-<div class="questionWrapper" question-id="{{questionData.questionID}}" question-title="{{questionData.title}}">
+<div class="questionWrapper" question-title="{{questionData.title}}">
 	<h1>{{questionData.title}}</h1>
 	<button class="questionDelete">Delete</button>
 	<ul>

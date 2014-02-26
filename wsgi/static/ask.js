@@ -4,7 +4,7 @@ function load(){
 	$(".questionDelete").click(function(){		
 		questionTitle = getQuestionTitle();
 		$.ajax({
-			//delete: /question/<questionID>/<questionTitle>
+			//delete: /question/<questionTitle>
 			url: questionTitle,
 			type: 'DELETE',
 			error: function(jqXHR, textStatus, errorThrown){
@@ -61,11 +61,6 @@ function load(){
 
 
 
-function getQuestionID(){
-	return $(".questionWrapper").attr("question-id");
-}
-
-
 function getQuestionTitle(){
 	return $(".questionWrapper").attr("question-title");
 }
@@ -102,7 +97,7 @@ function saveNewComment(elem){
 	answerID = getAnswerID(elem);
 	text = $(elem).siblings("textarea").val();
 	questionTitle = getQuestionTitle();
-	// "/question/<questionID>/<questionTitle>/comment"
+	// "/question/<questionTitle>/comment"
 	send("/comment",{"answerID":answerID,"text":text},'POST');
 }
 

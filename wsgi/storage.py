@@ -1,5 +1,7 @@
 from question import Question
 import askExceptions
+import hashlib
+
 #Singleton
 class Storage:
 	questions = []
@@ -14,52 +16,62 @@ class Storage:
 
 	############### Question #####################
 	def addNewQuestion(self,questionTitle,text,tags,author):
-		quest = Question(questionTitle, text, tags,author)
-		Storage.questions.append(quest)
-		return quest
+		exists = self.getQuestionNone(questionTitle)
+		if exists is None:
+			quest = Question(questionTitle, text, tags,author)
+			Storage.questions.append(quest)
+			return quest
+		else:
+			raise askExceptions.NotExist('question',"Already exists with same title"+str(questionTitle))
 
+	def getQuestion(self,questionTitle):
+		question = self.getQuestionNone(questionTitle)
+		if question is None:
+			raise askExceptions.NotExist('question',"Unknown Question:"+str(questionTitle))
+		else:
+			return question
 
-	def getQuestion(self,questionID):
+	def getQuestionNone(self,questionTitle):
 		for question in Storage.questions:
-			if question.questionID == questionID:
+			if question.title == questionTitle:
 				return question
-		raise askExceptions.NotExist('question',"Unknown Question:"+str(questionID))
+		return None
 
-	def deleteQuestion(self,questionID):
-		quest = self.getQuestion(questionID)
+	def deleteQuestion(self,questionTitle):
+		quest = self.getQuestion(questionTitle)
 		quest.delete()
 		Storage.questions.remove(quest)
 
 		
 	############### Answer #####################
-	def addAnswer(self,questionID,text,author):
-		self.getQuestion(questionID).addAnswer(author, text)
+	def addAnswer(self,questionTitle,text,author):
+		self.getQuestion(questionTitle).addAnswer(author, text)
 
-	def delAnswer(self,questionID,answerID):
-		self.getQuestion(questionID).deleteAnswer(answerID)
+	def delAnswer(self,questionTitle,answerID):
+		self.getQuestion(questionTitle).deleteAnswer(answerID)
 
-	def updateAnswer(self,questionID,answerID,text):
-		self.getQuestion(questionID).updateAnswer(answerID,text)
+	def updateAnswer(self,questionTitle,answerID,text):
+		self.getQuestion(questionTitle).updateAnswer(answerID,text)
 
 
 
 	############### Vote #####################
-	def voteUp(self,questionID,answerID):
-		self.getQuestion(questionID).voteUp(answerID)
+	def voteUp(self,questionTitle,answerID):
+		self.getQuestion(questionTitle).voteUp(answerID)
 
-	def voteDown(self,questionID,answerID):
-		self.getQuestion(questionID).voteDown(answerID)
+	def voteDown(self,questionTitle,answerID):
+		self.getQuestion(questionTitle).voteDown(answerID)
 
 
 	############### Comment #####################
-	def addComment(self,questionID,answerID,text,author):
-		self.getQuestion(questionID).addComment(answerID,text,author)
+	def addComment(self,questionTitle,answerID,text,author):
+		self.getQuestion(questionTitle).addComment(answerID,text,author)
 
-	def deleteComment(self,questionID,answerID,commentID):
-		self.getQuestion(questionID).deleteComment(answerID,commentID)
+	def deleteComment(self,questionTitle,answerID,commentID):
+		self.getQuestion(questionTitle).deleteComment(answerID,commentID)
 
-	def updateComment(self,questionID,answerID,commentID,text):
-		self.getQuestion(questionID).updateComment(answerID,commentID,text)
+	def updateComment(self,questionTitle,answerID,commentID,text):
+		self.getQuestion(questionTitle).updateComment(answerID,commentID,text)
 
 	############### List #####################
 	def getQuestionList(self,maxQuestions):

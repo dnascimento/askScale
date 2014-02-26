@@ -1,11 +1,13 @@
 from comment import Comment
 import askExceptions
+import hashlib
+
 
 class Answer:
-	answerCounter = 0
-	def __init__(self,author,text,question):
-		Answer.answerCounter += 1
-		self.answerID = str(Answer.answerCounter)
+	def __init__(self,author,text,questionTitle, question):
+		m = hashlib.md5()
+		m.update(text+author+questionTitle)
+		self.answerID = m.hexdigest()
 		self.author = author
 		self.votes = 0
 		self.text = text
@@ -19,7 +21,7 @@ class Answer:
 		raise askExceptions.NotExist('comment',"Unknown Comment:"+str(commentID))
 
 	def addComment(self,comment,author):
-		comm = Comment(comment, author)
+		comm = Comment(comment, author,self.answerID)
 		self.comments.append(comm)
 
 	def deleteComment(self,commentID):

@@ -5,4 +5,10 @@ http://cork.firelet.net/
 
 
 
-Handle question not exists
+Problema:
+Os IDs!!! Nao pode haver IDS assim a toa, tem de ser relativos a base de dados:
+ - Questions uso titulo
+ - Comments: ao adicionar nao preciso de ID. Ao modificar preciso... igual para os outros. o problema e que estes IDs sao storage em cada instancia e deveria ser um contador partilhado (que é uma dor de cabeça).
+
+ H1: Hash do conteudo para indexar: tenho de enviar o antigo para apagar. Gosto.
+ H2: Posicao dentro do comentario?
