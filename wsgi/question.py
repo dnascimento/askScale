@@ -68,6 +68,7 @@ class Question:
 		self.answersIds.append(answer._id)
 		self.save()
 
+
 	#delete the comment
 	def delete(self):
 		self.getAnswer(self.questionAnswerId).delete()

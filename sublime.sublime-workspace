@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"answers",
+				"answersIds"
+			],
+			[
+				"get",
+				"getFromId	function"
+			],
+			[
+				"answe",
+				"answerID"
+			],
+			[
+				"quest",
+				"questionId"
+			],
+			[
+				"answer",
+				"answerID	param"
+			],
+			[
+				"g",
+				"getFromId	function"
+			],
+			[
+				"ANSW",
+				"answerID"
+			],
+			[
+				"comment",
+				"comment_id"
+			],
+			[
+				"com",
+				"commentsIds	statement"
+			],
+			[
+				"add",
+				"addAnswer"
+			],
+			[
+				"bu",
+				"build"
+			],
+			[
+				"anse",
+				"answer_id	param"
+			],
+			[
+				"questi",
+				"question_id	param"
+			],
+			[
+				"ans",
+				"answersIds	param"
+			],
+			[
+				"question",
+				"questionTitle	param"
+			],
+			[
+				"ques",
+				"question"
+			],
+			[
+				"answ",
+				"answer	statement"
+			],
+			[
+				"FROM",
+				"fromDictionary	function"
+			],
+			[
+				"object",
+				"objectDict	statement"
+			],
+			[
 				"que",
 				"questionTitle"
 			],
@@ -12,20 +88,12 @@
 				"exceptions	import"
 			],
 			[
-				"ans",
-				"answerID	param"
-			],
-			[
 				"fun",
 				"function"
 			],
 			[
 				"q",
 				"questionTitle"
-			],
-			[
-				"answer",
-				"answerID"
 			],
 			[
 				"getQue",
@@ -44,24 +112,8 @@
 				"deleteComment"
 			],
 			[
-				"answ",
-				"answers"
-			],
-			[
-				"answe",
-				"answerID"
-			],
-			[
-				"get",
-				"getAnswer"
-			],
-			[
 				"qu",
 				"questionID"
-			],
-			[
-				"question",
-				"questionData	statement"
 			],
 			[
 				"an",
@@ -200,10 +252,6 @@
 				"comment"
 			],
 			[
-				"comment",
-				"commentSchema"
-			],
-			[
 				"art",
 				"articleID"
 			],
@@ -262,10 +310,6 @@
 			[
 				"fon",
 				"font-weight"
-			],
-			[
-				"bu",
-				"buttonBgHover"
 			],
 			[
 				"li",
@@ -470,69 +514,16 @@
 			[
 				"data",
 				"data-theme"
-			],
-			[
-				"po",
-				"popup"
-			],
-			[
-				"pop",
-				"popupVideo"
-			],
-			[
-				"popu",
-				"popupVideo"
-			],
-			[
-				"arti",
-				"article"
-			],
-			[
-				"arc",
-				"article"
-			],
-			[
-				"hash",
-				"hashed_password"
-			],
-			[
-				"use",
-				"userSaveFailed"
-			],
-			[
-				"user",
-				"userSaved"
-			],
-			[
-				"e",
-				"encryptPassword"
-			],
-			[
-				"re",
-				"redirect"
-			],
-			[
-				"mongoStore",
-				"mongoStoreConnectionArgs"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "/Users/darionascimento/Desktop/QuickSort.java",
-			"settings":
-			{
-				"buffer_size": 1204,
-				"line_ending": "Unix",
-				"name": "public class QuickSort{"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 159.0,
+		"height": 93.0,
 		"selected_items":
 		[
 			[
@@ -637,17 +628,30 @@
 	},
 	"file_history":
 	[
+		"/Volumes/DataDisk/Documents/IST - MERC/1º Ano 2º Semestre/AISS/AISS/lab1/source/aes/src/AES.java",
+		"/Volumes/DataDisk/Documents/IST - MERC/1º Ano 2º Semestre/AISS/project/grupo2/AISSProject/src/aiss/sender/Sender.java",
+		"/Users/darionascimento/git/appEngine/wsgi/comment.py",
+		"/Users/darionascimento/git/appEngine/wsgi/answer.py",
 		"/Users/darionascimento/git/appEngine/wsgi/question.py",
-		"/Users/darionascimento/git/appEngine/wsgi/main.py",
 		"/Users/darionascimento/git/appEngine/wsgi/storage.py",
+		"/Users/darionascimento/Desktop/question.txt",
+		"/Users/darionascimento/git/appEngine/.gitignore",
+		"/Users/darionascimento/git/appEngine/wsgi/old/answer.py",
+		"/Users/darionascimento/git/appEngine/wsgi/views/answer.tpl",
+		"/Users/darionascimento/git/appEngine/README.md",
+		"/Users/darionascimento/git/appEngine/wsgi/application",
+		"/Users/darionascimento/git/appEngine/wsgi/views/question.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/main.py",
+		"/Users/darionascimento/git/appEngine/wsgi/old/question.py",
+		"/Users/darionascimento/git/appEngine/wsgi/views/index.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/views/newQuestion.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/static/ask.css",
+		"/Users/darionascimento/git/appEngine/wsgi/storageOLD.py",
+		"/Users/darionascimento/git/appEngine/wsgi/mongo.py",
+		"/Users/darionascimento/Desktop/QuickSort.java",
 		"/Users/darionascimento/git/appEngine/wsgi/views/error.tpl",
 		"/Users/darionascimento/git/appEngine/wsgi/askExceptions.py",
 		"/Users/darionascimento/git/appEngine/setup.py",
-		"/Users/darionascimento/git/appEngine/wsgi/answer.py",
-		"/Users/darionascimento/git/appEngine/wsgi/comment.py",
-		"/Users/darionascimento/git/appEngine/wsgi/views/index.tpl",
-		"/Users/darionascimento/git/appEngine/wsgi/static/ask.css",
-		"/Users/darionascimento/git/appEngine/wsgi/views/question.tpl",
 		"/Users/darionascimento/git/appEngine/TODO.txt",
 		"/Users/darionascimento/git/appEngine/wsgi/static/ask.js",
 		"/Users/darionascimento/git/AppEvaluation/README.md",
@@ -678,17 +682,12 @@
 		"/Users/darionascimento/git/protobuffer/com/example/tutorial/addressBookProtos.java",
 		"/Users/darionascimento/Downloads/protobuf-2.5.0/INSTALL.txt",
 		"/Users/darionascimento/Downloads/httpcomponents-client-4.3.2/examples/org/apache/http/client/fluent/FluentAsync.java",
-		"/Users/darionascimento/git/appEngine/wsgi/views/answer.tpl",
 		"/Users/darionascimento/git/appEngine/wsgi/exceptions.py",
 		"/Users/darionascimento/git/appEngine/.openshift/markers/README",
-		"/Users/darionascimento/git/appEngine/.gitignore",
-		"/Users/darionascimento/git/appEngine/wsgi/views/newQuestion.tpl",
 		"/Users/darionascimento/git/appEngine/.openshift/action_hooks/deploy",
 		"/Users/darionascimento/git/appEngine/wsgi/static/jquery.js",
 		"/Users/darionascimento/git/appEngine/.openshift/action_hooks/post_deploy",
 		"/Users/darionascimento/git/appEngine/wsgi/views/base.tpl",
-		"/Users/darionascimento/git/appEngine/wsgi/application",
-		"/Users/darionascimento/git/appEngine/README.md",
 		"/Users/darionascimento/Downloads/deutsch.txt",
 		"/Users/darionascimento/git/appEngine/dario/views/answer.tpl",
 		"/Users/darionascimento/git/appEngine/dario/views/base.tpl",
@@ -756,15 +755,7 @@
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/redo.txt",
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/3.Recovery.txt",
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Defense Lines.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/4.Checkpoint.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Consistencia.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/ReliableSystem.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Arch.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/architecture 2.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/architecture.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/2.Normal.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Justifica.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/ReliableSystem.txt"
+		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/4.Checkpoint.txt"
 	],
 	"find":
 	{
@@ -791,6 +782,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"AES",
+			"aes",
+			"deleteComment",
+			"Question.getFromId",
+			"ID",
+			"getqUESTION",
+			"getAnswer",
+			"getQuestion",
+			"getQuestionList",
 			"question.",
 			"questionID",
 			"/\"+questionID+\"/\"",
@@ -909,16 +909,7 @@
 			"getContentFromSubcategory",
 			"getContentFromSubcategory\ngetContentFromSubcategory",
 			"getContentFromSubcategory",
-			"subcategory",
-			"__str__",
-			"session",
-			"name",
-			"category",
-			"8041b0",
-			"saveFile",
-			"content",
-			"video",
-			"603085"
+			"subcategory"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -926,6 +917,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"getQuestion",
 			"questionTitle",
 			"/\"",
 			")",
@@ -1013,40 +1005,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Users/darionascimento/Desktop/QuickSort.java",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								271,
-								271
-							]
-						],
-						"settings":
-						{
-							"auto_name": "public class QuickSort{",
-							"is_xml": false,
-							"syntax": "Packages/Java/Java.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1097,10 +1057,6 @@
 		"selected_items":
 		[
 			[
-				"ma",
-				"wsgi/main.py"
-			],
-			[
 				"st",
 				"wsgi/storage.py"
 			],
@@ -1109,32 +1065,72 @@
 				"wsgi/question.py"
 			],
 			[
-				"inde",
-				"wsgi/views/index.tpl"
+				"co",
+				"wsgi/comment.py"
+			],
+			[
+				"an",
+				"wsgi/answer.py"
+			],
+			[
+				"que",
+				"wsgi/question.py"
 			],
 			[
 				"ans",
 				"wsgi/answer.py"
 			],
 			[
+				"a",
+				"wsgi/answer.py"
+			],
+			[
+				"s",
+				"wsgi/storage.py"
+			],
+			[
+				"q",
+				"wsgi/question.py"
+			],
+			[
+				"comm",
+				"wsgi/comment.py"
+			],
+			[
 				"com",
 				"wsgi/comment.py"
 			],
 			[
-				"ques",
-				"wsgi/question.py"
-			],
-			[
-				"a",
-				"wsgi/answer.py"
+				"ma",
+				"wsgi/main.py"
 			],
 			[
 				"qu",
 				"wsgi/question.py"
 			],
 			[
-				"an",
-				"wsgi/answer.py"
+				"inde",
+				"wsgi/views/index.tpl"
+			],
+			[
+				"mai",
+				"wsgi/main.py"
+			],
+			[
+				".tpl",
+				"wsgi/views/newQuestion.tpl"
+			],
+			[
+				"ques",
+				"wsgi/views/question.tpl"
+			],
+			[
+				"so",
+				"wsgi/storage.py"
+			],
+			[
+				"mo",
+				"wsgi/mongo.py"
 			],
 			[
 				"comme",
@@ -1143,10 +1139,6 @@
 			[
 				"main",
 				"wsgi/main.py"
-			],
-			[
-				"que",
-				"wsgi/question.py"
 			],
 			[
 				"quest",
@@ -1173,10 +1165,6 @@
 				"wsgi/exceptions.py"
 			],
 			[
-				"s",
-				"wsgi/storage.py"
-			],
-			[
 				"erro",
 				"wsgi/views/error.tpl"
 			],
@@ -1187,10 +1175,6 @@
 			[
 				"to",
 				"TODO.txt"
-			],
-			[
-				"mai",
-				"wsgi/main.py"
 			],
 			[
 				"stor",
@@ -1221,20 +1205,12 @@
 				"wsgi/answer.py"
 			],
 			[
-				".tpl",
-				"wsgi/views/answer.tpl"
-			],
-			[
 				"new",
 				"wsgi/views/newQuestion.tpl"
 			],
 			[
 				"cs",
 				"wsgi/static/ask.css"
-			],
-			[
-				"comm",
-				"comments.py"
 			],
 			[
 				"app",
@@ -1401,10 +1377,6 @@
 				"db.sql"
 			],
 			[
-				"mo",
-				"backend/app/models.py"
-			],
-			[
 				"app.p",
 				"backend/app/__init__.py"
 			],
@@ -1529,10 +1501,6 @@
 				"backend/app/views/admin/admin.py"
 			],
 			[
-				"q",
-				"backend/app/views/libs/db_queries.py"
-			],
-			[
 				"conf",
 				"backend/config.py"
 			],
@@ -1599,14 +1567,6 @@
 			[
 				"bac",
 				"backend/app/templates/snippets/back_header.html"
-			],
-			[
-				"ca",
-				"backend/app/templates/snippets/category.html"
-			],
-			[
-				"video",
-				"backend/app/templates/snippets/videoAdv.html"
 			]
 		],
 		"width": 0.0
