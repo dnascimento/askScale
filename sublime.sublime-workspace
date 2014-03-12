@@ -4,16 +4,68 @@
 		"selected_items":
 		[
 			[
+				"que",
+				"questionTitle"
+			],
+			[
+				"excp",
+				"exceptions	import"
+			],
+			[
+				"ans",
+				"answerID	param"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"q",
+				"questionTitle"
+			],
+			[
+				"answer",
+				"answerID"
+			],
+			[
+				"getQue",
+				"getQuestionTitle"
+			],
+			[
+				"text",
+				"textStatus"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"delete",
+				"deleteComment"
+			],
+			[
+				"answ",
+				"answers"
+			],
+			[
+				"answe",
+				"answerID"
+			],
+			[
+				"get",
+				"getAnswer"
+			],
+			[
+				"qu",
+				"questionID"
+			],
+			[
 				"question",
 				"questionData	statement"
 			],
 			[
 				"an",
 				"answer"
-			],
-			[
-				"in",
-				"inline-block"
 			],
 			[
 				"tex",
@@ -102,10 +154,6 @@
 			[
 				"border",
 				"border-radius"
-			],
-			[
-				"text",
-				"text-decoration"
 			],
 			[
 				"bac",
@@ -266,10 +314,6 @@
 			[
 				"backg",
 				"background"
-			],
-			[
-				"get",
-				"getElementById"
 			],
 			[
 				"op",
@@ -470,68 +514,25 @@
 			[
 				"mongoStore",
 				"mongoStoreConnectionArgs"
-			],
-			[
-				"find",
-				"findById"
-			],
-			[
-				"cu",
-				"customersList"
-			],
-			[
-				"cus",
-				"customers"
-			],
-			[
-				"cs",
-				"customers"
-			],
-			[
-				"userS",
-				"userSaveFailed"
-			],
-			[
-				"ti",
-				"title"
-			],
-			[
-				"docu",
-				"documents"
-			],
-			[
-				"app",
-				"application"
-			],
-			[
-				"for",
-				"format"
-			],
-			[
-				"fun",
-				"function"
-			],
-			[
-				"soc",
-				"socket"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "wsgi/main.py",
+			"file": "/Users/darionascimento/Desktop/QuickSort.java",
 			"settings":
 			{
-				"buffer_size": 2606,
-				"line_ending": "Unix"
+				"buffer_size": 1204,
+				"line_ending": "Unix",
+				"name": "public class QuickSort{"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 49.0,
+		"height": 159.0,
 		"selected_items":
 		[
 			[
@@ -615,7 +616,7 @@
 				"Set Syntax: Python"
 			]
 		],
-		"width": 435.0
+		"width": 462.0
 	},
 	"console":
 	{
@@ -636,8 +637,57 @@
 	},
 	"file_history":
 	[
-		"/Users/darionascimento/git/appEngine/TODO.txt",
+		"/Users/darionascimento/git/appEngine/wsgi/question.py",
 		"/Users/darionascimento/git/appEngine/wsgi/main.py",
+		"/Users/darionascimento/git/appEngine/wsgi/storage.py",
+		"/Users/darionascimento/git/appEngine/wsgi/views/error.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/askExceptions.py",
+		"/Users/darionascimento/git/appEngine/setup.py",
+		"/Users/darionascimento/git/appEngine/wsgi/answer.py",
+		"/Users/darionascimento/git/appEngine/wsgi/comment.py",
+		"/Users/darionascimento/git/appEngine/wsgi/views/index.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/static/ask.css",
+		"/Users/darionascimento/git/appEngine/wsgi/views/question.tpl",
+		"/Users/darionascimento/git/appEngine/TODO.txt",
+		"/Users/darionascimento/git/appEngine/wsgi/static/ask.js",
+		"/Users/darionascimento/git/AppEvaluation/README.md",
+		"/Users/darionascimento/git/appEngine/sublime.sublime-workspace",
+		"/Volumes/DataDisk/Documents/IST - LERC/2º Ano/1º Semestre/Sistemas Operativos/projecto/2apartefinal/authors",
+		"/Users/darionascimento/git/Test/src/StrInvert.java",
+		"/Users/darionascimento/Desktop/Lista Erros.txt",
+		"/Users/darionascimento/git/Test/src/test.txt",
+		"/Users/darionascimento/Desktop/analysis.txt",
+		"/Users/darionascimento/Desktop/maven.txt",
+		"/Users/darionascimento/Desktop/Paas/Stratos/README",
+		"/Volumes/DataDisk/Documents/IST - MERC/1º Ano 1º Semestre/sers/Project/projecto/source/log4j.properties",
+		"/Users/darionascimento/git/AppEvaluation/bin/README.md",
+		"/Users/darionascimento/Downloads/jaxrsprotobuf-master/src/test/java/com/sampullara/jaxrsprotobuf/tutorial/MainTest.java",
+		"/Users/darionascimento/Downloads/jaxrsprotobuf-master/src/main/java/com/sampullara/jaxrsprotobuf/tutorial/AddressBookService.java",
+		"/Users/darionascimento/Downloads/jaxrsprotobuf-master/pom.groovy",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui-standalone.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui-standalone_WIN.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui-standalone_GTK.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui-standalone_OSX.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui_OSX.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui_GTK.css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui_[WIN-patch].css",
+		"/Users/darionascimento/Desktop/plugin/themes/css/moonrise-ui_[OSX-patch].css",
+		"/Users/darionascimento/git/protobuffer/com/example/tutorial/Buffers.java",
+		"/Users/darionascimento/git/protobuffer/addressbook.proto",
+		"/Users/darionascimento/git/protobuffer/com/example/tutorial/addressBookProtos.java",
+		"/Users/darionascimento/Downloads/protobuf-2.5.0/INSTALL.txt",
+		"/Users/darionascimento/Downloads/httpcomponents-client-4.3.2/examples/org/apache/http/client/fluent/FluentAsync.java",
+		"/Users/darionascimento/git/appEngine/wsgi/views/answer.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/exceptions.py",
+		"/Users/darionascimento/git/appEngine/.openshift/markers/README",
+		"/Users/darionascimento/git/appEngine/.gitignore",
+		"/Users/darionascimento/git/appEngine/wsgi/views/newQuestion.tpl",
+		"/Users/darionascimento/git/appEngine/.openshift/action_hooks/deploy",
+		"/Users/darionascimento/git/appEngine/wsgi/static/jquery.js",
+		"/Users/darionascimento/git/appEngine/.openshift/action_hooks/post_deploy",
+		"/Users/darionascimento/git/appEngine/wsgi/views/base.tpl",
+		"/Users/darionascimento/git/appEngine/wsgi/application",
 		"/Users/darionascimento/git/appEngine/README.md",
 		"/Users/darionascimento/Downloads/deutsch.txt",
 		"/Users/darionascimento/git/appEngine/dario/views/answer.tpl",
@@ -714,60 +764,11 @@
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/architecture.txt",
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/2.Normal.txt",
 		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Justifica.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/ReliableSystem.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/1.IDS.txt",
-		"/Users/darionascimento/Tese/Project/Sections/related_work/recovery_App.tex",
-		"/Users/darionascimento/Tese/Project/Sections/related_work/recovery_DB.tex",
-		"/Users/darionascimento/Tese/Project/Sections/related_work/recovery_SO.tex",
-		"/Users/darionascimento/Tese/Project/Sections/introduction.tex",
-		"/Users/darionascimento/Tese/Project/Sections/schedule.tex",
-		"/Users/darionascimento/Tese/Project/project.sublime-workspace",
-		"/Users/darionascimento/Tese/Project/Sections/goals.tex",
-		"/Users/darionascimento/Tese/Project/Sections/evaluation.tex",
-		"/Users/darionascimento/Tese/Project/Sections/abstract.tex",
-		"/Users/darionascimento/Tese/Project/Sections/architecture.tex",
-		"/Users/darionascimento/Tese/Project/Sections/related_work/recovery_compare.tex",
-		"/Users/darionascimento/Desktop/MailBest.txt",
-		"/Users/darionascimento/Desktop/Intrusion Tolerance vs Intrusion Recovery.txt",
-		"/Users/darionascimento/Desktop/Maike.txt",
-		"/Users/darionascimento/Downloads/escreverbem.html",
-		"/Users/darionascimento/Desktop/bikes.txt",
-		"/Users/darionascimento/Desktop/To Read/Understanding the Cloud Computing Stack  SaaS, PaaS, IaaS   Knowledge Center   Rackspace Hosting.html",
-		"/Users/darionascimento/CVMov Papers/CVMOV.bib",
-		"/Users/darionascimento/Tese/Project/Sections/related_work.tex",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/app.js",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/public/www/index.php",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/public/js/dario.js",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/public/index.html",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/routes/index.js",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/dario.sublime-project",
-		"/Users/darionascimento/study/MergeSort.java",
-		"/Users/darionascimento/contestapplet.conf",
-		"/Volumes/DataDisk/Eduze/backend/run.py",
-		"/Users/darionascimento/study/InfStack.java",
-		"/Users/darionascimento/study/Stack.java",
-		"/Users/darionascimento/study/StackMeta.java",
-		"/Users/darionascimento/study/StackArray.java",
-		"/Users/darionascimento/study/StaticArray.java",
-		"/Users/darionascimento/Desktop/maike_secret.txt",
-		"/Users/darionascimento/Downloads/it_gov 2/bib/refs.bib",
-		"/Users/darionascimento/study/Quick.java",
-		"/Users/darionascimento/study/Shell.java",
-		"/Users/darionascimento/study/CharCount.java",
-		"/Users/darionascimento/study/Node.java",
-		"/Users/darionascimento/Downloads/segura.txt",
-		"/Users/darionascimento/Desktop/README",
-		"/Volumes/DataDisk/cv/netapp.txt",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/public/css/style.styl",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/node_modules/express/test.js",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/node_modules/less/node_modules/request/tests/test-errors.js",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/node_modules/less/test/browser/template.htm",
-		"/Users/darionascimento/Desktop/nfs.txt",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/views/article.jade"
+		"/Users/darionascimento/Tese/Project/Arquitectura/ReliableSystem.txt"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -790,6 +791,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"question.",
+			"questionID",
+			"/\"+questionID+\"/\"",
+			",questionID)",
+			"/<questionID>/",
+			"CTabFolder",
+			"hover",
+			"Font-fa",
+			"Font",
+			"font-fa",
+			"Font-fa",
+			"font-fa",
+			"font-family",
+			"Lucida Grande",
+			"font-family",
+			"window.location.href",
+			"window.location.href ",
+			"error(e)",
+			"askException.",
+			"exceptions.",
+			"askExceptions",
+			"getQuestion",
+			"error",
+			"saveComment",
+			"updateAnswer",
+			"question",
+			"content",
+			"+questionTitle) ",
+			"(questionTitle):",
+			"/<questionTitle>",
+			"title",
+			"@update",
+			"update",
 			"@application.",
 			"#application.",
 			"getQuestionList",
@@ -884,47 +918,29 @@
 			"saveFile",
 			"content",
 			"video",
-			"603085",
-			"reveal-modal-bg",
-			"click here to download voucher",
-			"from",
-			"{{",
-			".reveal-modal-bg ",
-			"ababab",
-			"#5E5E5E",
-			"5E5E5E",
-			"\n5E5E5E",
-			"5E5E5E",
-			"popupAdv",
-			"top",
-			"(DO IT ONLY ONCE!)",
-			"db_queries.py",
-			"flushTops",
-			"error",
-			"help",
-			"saveFile",
-			"getAllSubcategoriesNames",
-			"db",
-			"session.commit()",
-			"session.commit()\n",
-			"mejs-currenttime-container",
-			"mejs-time mejs-currenttime-container",
-			".mejs-horizontal-volume",
-			".mejs-controls div.mejs-horizontal-volume-slider",
-			"volumeSlider",
-			"skin",
-			".mejs-dn .mejs-controls .mejs-time span",
-			".mejs-dn .mejs-controls .mejs-currenttime-container",
-			"#ddd",
-			"eee",
-			"mejs-ted"
+			"603085"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"questionTitle",
+			"/\"",
+			")",
+			"/",
+			"return error(e)",
+			"askExceptions.",
+			"askException.",
+			"askExceptions",
+			"text",
+			"+questionID+\"/\"+questionTitle) ",
+			"(questionTitle,questionID):",
+			"/<questionID>/<questionTitle>",
+			"questionTitle",
+			"@put",
+			"put",
 			"@",
 			"",
 			"css",
@@ -1002,24 +1018,26 @@
 			[
 				{
 					"buffer": 0,
-					"file": "wsgi/main.py",
+					"file": "/Users/darionascimento/Desktop/QuickSort.java",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2606,
+						"buffer_size": 1204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								271,
+								271
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"auto_name": "public class QuickSort{",
+							"is_xml": false,
+							"syntax": "Packages/Java/Java.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -1070,7 +1088,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 42.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1079,24 +1097,140 @@
 		"selected_items":
 		[
 			[
-				"ques",
-				"views/question.tpl"
-			],
-			[
-				"que",
-				"questions.py"
-			],
-			[
-				"css",
-				"static/ask.css"
-			],
-			[
-				"inde",
-				"views/index.tpl"
+				"ma",
+				"wsgi/main.py"
 			],
 			[
 				"st",
-				"storage.py"
+				"wsgi/storage.py"
+			],
+			[
+				"sto",
+				"wsgi/question.py"
+			],
+			[
+				"inde",
+				"wsgi/views/index.tpl"
+			],
+			[
+				"ans",
+				"wsgi/answer.py"
+			],
+			[
+				"com",
+				"wsgi/comment.py"
+			],
+			[
+				"ques",
+				"wsgi/question.py"
+			],
+			[
+				"a",
+				"wsgi/answer.py"
+			],
+			[
+				"qu",
+				"wsgi/question.py"
+			],
+			[
+				"an",
+				"wsgi/answer.py"
+			],
+			[
+				"comme",
+				"wsgi/comment.py"
+			],
+			[
+				"main",
+				"wsgi/main.py"
+			],
+			[
+				"que",
+				"wsgi/question.py"
+			],
+			[
+				"quest",
+				"wsgi/views/question.tpl"
+			],
+			[
+				"as",
+				"wsgi/static/ask.js"
+			],
+			[
+				"ask",
+				"wsgi/static/ask.js"
+			],
+			[
+				"m",
+				"wsgi/main.py"
+			],
+			[
+				"ex",
+				"wsgi/exceptions.py"
+			],
+			[
+				"",
+				"wsgi/exceptions.py"
+			],
+			[
+				"s",
+				"wsgi/storage.py"
+			],
+			[
+				"erro",
+				"wsgi/views/error.tpl"
+			],
+			[
+				"css",
+				"wsgi/static/ask.css"
+			],
+			[
+				"to",
+				"TODO.txt"
+			],
+			[
+				"mai",
+				"wsgi/main.py"
+			],
+			[
+				"stor",
+				"wsgi/storage.py"
+			],
+			[
+				"stora",
+				"wsgi/storage.py"
+			],
+			[
+				"man",
+				"wsgi/main.py"
+			],
+			[
+				"js",
+				"wsgi/static/ask.js"
+			],
+			[
+				"ind",
+				"wsgi/views/index.tpl"
+			],
+			[
+				"questi",
+				"wsgi/views/question.tpl"
+			],
+			[
+				"answ",
+				"wsgi/answer.py"
+			],
+			[
+				".tpl",
+				"wsgi/views/answer.tpl"
+			],
+			[
+				"new",
+				"wsgi/views/newQuestion.tpl"
+			],
+			[
+				"cs",
+				"wsgi/static/ask.css"
 			],
 			[
 				"comm",
@@ -1107,24 +1241,12 @@
 				"app.py"
 			],
 			[
-				"ans",
-				"views/answer.tpl"
-			],
-			[
 				"ap",
 				"app.py"
 			],
 			[
 				"n",
 				"views/newQuestion.tpl"
-			],
-			[
-				"cs",
-				"static/ask.css"
-			],
-			[
-				"stor",
-				"storage.py"
 			],
 			[
 				"hr",
@@ -1145,14 +1267,6 @@
 			[
 				"style",
 				"public/css/style.styl"
-			],
-			[
-				"s",
-				"public/css/style.styl"
-			],
-			[
-				"a",
-				"app.js"
 			],
 			[
 				"arti",
@@ -1203,10 +1317,6 @@
 				"public/stylesheets/style.styl"
 			],
 			[
-				"",
-				"app.js"
-			],
-			[
 				"dari.",
 				"public/js/dario.js"
 			],
@@ -1221,10 +1331,6 @@
 			[
 				"index.",
 				"views/index.jade"
-			],
-			[
-				"ind",
-				"routes/index.js"
 			],
 			[
 				"top_ent",
@@ -1367,10 +1473,6 @@
 				"backend/app/views/admin/admin.py"
 			],
 			[
-				"qu",
-				"backend/src/flask-sqlalchemy/docs/queries.rst"
-			],
-			[
 				"style.css",
 				"backend/app/static/css/style.css"
 			],
@@ -1447,10 +1549,6 @@
 				"backend/app/templates/snippets/top_entry_album.html"
 			],
 			[
-				"to",
-				"backend/app/templates/top_page.html"
-			],
-			[
 				"entr",
 				"backend/app/templates/snippets/top_entry_music.html"
 			],
@@ -1509,86 +1607,6 @@
 			[
 				"video",
 				"backend/app/templates/snippets/videoAdv.html"
-			],
-			[
-				"he",
-				"backend/app/templates/snippets/header.html"
-			],
-			[
-				"chat",
-				"backend/app/templates/chat.html"
-			],
-			[
-				"chat_c",
-				"backend/app/templates/chat_contacts.html"
-			],
-			[
-				"chat_person",
-				"backend/app/templates/chat_person.html"
-			],
-			[
-				"cate",
-				"backend/app/templates/snippets/category.html"
-			],
-			[
-				"fo",
-				"backend/app/forms.py"
-			],
-			[
-				"pro",
-				"backend/app/templates/profile.html"
-			],
-			[
-				"g",
-				"backend/app/views/general.py"
-			],
-			[
-				"pr",
-				"backend/app/templates/profile.html"
-			],
-			[
-				"use",
-				"backend/app/templates/snippets/user.html"
-			],
-			[
-				"li",
-				"lighttpd.conf"
-			],
-			[
-				"__",
-				"backend/app/__init__.py"
-			],
-			[
-				"l",
-				"lighttpd.conf"
-			],
-			[
-				"top_",
-				"backend/app/templates/top_page.html"
-			],
-			[
-				"back",
-				"backend/app/templates/snippets/back_header.html"
-			],
-			[
-				"vide",
-				"backend/app/templates/snippets/videoAdv.html"
-			],
-			[
-				"content.",
-				"backend/app/templates/admin/content.html"
-			],
-			[
-				"general.js",
-				"backend/app/static/js/general.js"
-			],
-			[
-				"top_g",
-				"backend/app/templates/snippets/top_entry_generic.html"
-			],
-			[
-				"top_m",
-				"backend/app/templates/snippets/top_entry_music.html"
 			]
 		],
 		"width": 0.0

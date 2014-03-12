@@ -2,6 +2,7 @@ from bottle import route, run, template, get, post, error, request, put, respons
 from storage import *
 import askExceptions
 import hashlib
+import pprint
 
 #OPENSHIFT
 # import os
@@ -10,16 +11,22 @@ import hashlib
 #     'app-root/runtime/repo/wsgi/views/')) 
 
 
+pp = pprint.PrettyPrinter(indent=4)
 
 db = Storage()
 #GAE - Force bootle
 #import bottle
 # application = bottle.Bottle()
 
+@get("/test")
+def test():
+	return "dario"
+
 @get("/")
 def index():
-	request.headers.get('cookie')
-	response.add_header('RID', '124')
+	reqID = request.headers.get('Id')
+	print "req: "+str(reqID)
+	response.add_header('RID', reqID)
 	questionList = db.getQuestionList(20)
 	return template("index.tpl",name="dario",questionList=questionList)
 
@@ -43,10 +50,15 @@ def getNewQuestion():
 
 @post("/new-question")
 def postNewQuestion():
+	print "body"+str(request.body)
+	print "length:"+str(request.content_length)
+
+
 	author = ""
 	questionTitle = request.forms.get('title')
 	text = request.forms.get('text')
 	tags = request.forms.getlist('tags')
+	print "questionTitle"+str(questionTitle)
 	try:
 		question = db.addNewQuestion(questionTitle,text,tags,author)
 		redirect("/question/"+question.title)
@@ -181,7 +193,7 @@ def voteDown(questionTitle):
 # ############################################################
 
 # #LOCAL
-run(host='localhost',port=8888,reloader=True)
+run(host='localhost',port=8080,reloader=True)
 
 # #applicationEngine
 # #application.run(server='gae')
