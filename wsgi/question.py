@@ -70,16 +70,18 @@ class Question:
 
 	#delete the comment
 	def delete(self):
-		for answer in self.answers:
-			answer.delete()
+		self.getAnswer(self.questionAnswerId).delete()
+		print self.answersIds
+		for answerID in self.answersIds:
+			self.getAnswer(answerID).delete()
 		db.questions.remove(self._id)
 
 	def deleteAnswer(self,answerID):
-		if answersIds.remove(answerID):
-			self.getAnswer.delete()
-			save()		
-			LoadAnswers()
-		else:
+		try:
+			self.answersIds.remove(answerID)
+			self.getAnswer(answerID).delete()
+			self.save()
+		except ValueError:	
 			raise askExceptions.NotExist('answer',"Unknown Answer: "+str(answerID))
 
 	#########################################################

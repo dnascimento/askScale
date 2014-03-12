@@ -34,12 +34,11 @@ class Comment:
 	######################################################################################
 
 	def delete(self):
-		#TODO
-		pass
+		db.comments.remove(self._id)
 
 	def update(self,text):
-		#TODO
 		self.text = text
+		self.save()
 
 	def save(self):
 		objectDict = self.__dict__

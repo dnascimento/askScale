@@ -46,37 +46,36 @@ class Answer:
 				comments.append(comm)
 		self.comments = comments
 	########################################
-	def addComment(self,comment,author):
+	def addComment(self,text,author):
+		comment = Comment.build(text,author,self._id)
 		self.commentsIds.append(comment._id)
 		self.save()
 
 	def deleteComment(self,commentID):
-		comment = self.getComment(commentID)
-		self.comments.remove(comment)
+		comment = self.getComment(commentID).delete()
+		self.commentsIds.remove(commentID)
+		self.save()
 
 
 	def updateComment(self,commentID,text):
 		self.getComment(commentID).update(text)
-		save()
 
 	def update(self,text):
 		self.text = text
-		save()
+		self.save()
 
 	def voteUp(self):
 		self.votes += 1
-		save()
+		self.save()
 
 	def voteDown(self):
 		self.votes -= 1
-		save()
+		self.save()
 
 	def delete(self):
 		for comment in self.comments:
 			comment.delete()
-		comments = []
-		#TODO remove
-
+		db.answers.remove(self._id)
 
 	def getComment(self,commentID):
 		for comment in self.comments:

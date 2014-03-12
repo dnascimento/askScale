@@ -31,7 +31,7 @@ class Storage:
 	def addAnswer(self,questionTitle,text,author):
 		self.getQuestion(questionTitle).addAnswer(author, text)
 
-	def updateAnswer(self,questionTitle,answerId,text):
+	def updateAnswer(self,questionTitle,answerID,text):
 		self.getQuestion(questionTitle).updateAnswer(answerID,text)
 
 	def delAnswer(self,questionTitle,answerID):
