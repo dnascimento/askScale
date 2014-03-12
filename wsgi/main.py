@@ -28,6 +28,7 @@ def index():
 	print "req: "+str(reqID)
 	response.add_header('RID', reqID)
 	questionList = db.getQuestionList(20)
+	print questionList
 	return template("index.tpl",name="dario",questionList=questionList)
 
 

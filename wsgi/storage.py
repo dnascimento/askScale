@@ -2,68 +2,42 @@ from question import Question
 import askExceptions
 import hashlib
 
+import pymongo
+client = pymongo.MongoClient("localhost", 27017)
+db = client.askInesc
+
 #Singleton
 class Storage:
-	questions = []
-
 	_instance = None
 	def __new__(cls,*args,**kwargs):
 		if not cls._instance:
 			cls._instance = super(Singleton,cls).__new__(cls, *args, **kwargs)
 		return cls._instance
 
-
-
 	############### Question #####################
-	def addNewQuestion(self,questionTitle,text,tags,author):
-		exists = self.getQuestionNone(questionTitle)
-		if exists is None:
-			quest = Question(questionTitle, text, tags,author)
-			Storage.questions.append(quest)
-			return quest
-		else:
-			raise askExceptions.NotExist('question',"Already exists with same title"+str(questionTitle))
+	def addNewQuestion(self,title,text,tags,author):
+		return Question.build(title,text,tags,author)
 
-	def getQuestion(self,questionTitle):
-		question = self.getQuestionNone(questionTitle)
-		if question is None:
-			raise askExceptions.NotExist('question',"Unknown Question:"+str(questionTitle))
-		else:
-			return question
-
-	def getQuestionNone(self,questionTitle):
-		for question in Storage.questions:
-			if question.title == questionTitle:
-				return question
-		return None
+	def getQuestion(self,questionId):
+		return Question.getFromId(questionId)
 
 	def deleteQuestion(self,questionTitle):
-		quest = self.getQuestion(questionTitle)
-		quest.delete()
-		Storage.questions.remove(quest)
+		self.getQuestion(questionTitle).delete()
 
-		
+	def getQuestionList(self,maxQuestions):
+		return Question.getList(maxQuestions)
+	
 	############### Answer #####################
 	def addAnswer(self,questionTitle,text,author):
 		self.getQuestion(questionTitle).addAnswer(author, text)
 
+	def updateAnswer(self,questionTitle,answerId,text):
+		self.getQuestion(questionTitle).updateAnswer(answerID,text)
+
 	def delAnswer(self,questionTitle,answerID):
 		self.getQuestion(questionTitle).deleteAnswer(answerID)
 
-	def updateAnswer(self,questionTitle,answerID,text):
-		self.getQuestion(questionTitle).updateAnswer(answerID,text)
-
-
-
-	############### Vote #####################
-	def voteUp(self,questionTitle,answerID):
-		self.getQuestion(questionTitle).voteUp(answerID)
-
-	def voteDown(self,questionTitle,answerID):
-		self.getQuestion(questionTitle).voteDown(answerID)
-
-
-	############### Comment #####################
+	############# Comment ##################
 	def addComment(self,questionTitle,answerID,text,author):
 		self.getQuestion(questionTitle).addComment(answerID,text,author)
 
@@ -73,6 +47,46 @@ class Storage:
 	def updateComment(self,questionTitle,answerID,commentID,text):
 		self.getQuestion(questionTitle).updateComment(answerID,commentID,text)
 
-	############### List #####################
-	def getQuestionList(self,maxQuestions):
-		return Storage.questions
+	############### Vote #####################
+	def voteUp(self,questionTitle,answerID):
+		self.getQuestion(questionTitle).voteUp(answerID)
+
+	def voteDown(self,questionTitle,answerID):
+		self.getQuestion(questionTitle).voteDown(answerID)
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

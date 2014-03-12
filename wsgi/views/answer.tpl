@@ -1,4 +1,4 @@
-<div class="answerArea" answer-id="{{answer.answerID}}">
+<div class="answerArea" answer-id="{{answer._id}}">
 	<div class="vote">
 		<img class="up" src="/static/up.png"/>
 		<p>{{answer.votes}}</p>
@@ -20,7 +20,7 @@
 		<div class="commentsArea">
 			<h3>Comments</h3>
 				%for comment in answer.comments:
-					<div class="comment" comment-id="{{comment.commentID}}">
+					<div class="comment" comment-id="{{comment._id}}">
 						<p>{{comment.text}}</p>
 						<button class="delete">Delete</button>
 						<button class="edit">Edit</button>
