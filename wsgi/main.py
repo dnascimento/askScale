@@ -18,17 +18,16 @@ service = AskService()
 #import bottle
 # application = bottle.Bottle()
 
+
 @get("/test")
 def test():
 	return "dario"
 
 @get("/")
 def index():
-	reqID = request.headers.get('Id')
-	print "req: "+str(reqID)
-	response.add_header('RID', reqID)
-	questionList = service.getQuestionList(20)
-	print questionList
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+	questionList = service.getQuestionList(20,rid)
 	return template("index.tpl",name="dario",questionList=questionList)
 
 
@@ -51,33 +50,35 @@ def getNewQuestion():
 
 @post("/new-question")
 def postNewQuestion():
-	print "body"+str(request.body)
-	print "length:"+str(request.content_length)
-
-
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
 	author = ""
 	questionTitle = request.forms.get('title')
 	text = request.forms.get('text')
 	tags = request.forms.getlist('tags')
 	print "questionTitle"+str(questionTitle)
 	try:
-		question = service.addNewQuestion(questionTitle,text,tags,author)
+		question = service.addNewQuestion(questionTitle,text,tags,author,rid)
 		redirect("/question/"+question.title)
 	except askExceptions.NotExist as e:
 		return error(e)
 
 @delete("/question/<questionTitle>")
 def deleteQuestion(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
 	try:
-		service.deleteQuestion(questionTitle)
+		service.deleteQuestion(questionTitle,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/")
 
 @get("/question/<questionTitle>")
 def getQuestion(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
 	try:
-		questionData = service.getQuestion(questionTitle)
+		questionData = service.getQuestion(questionTitle,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 
@@ -90,10 +91,12 @@ def getQuestion(questionTitle):
 
 @post("/question/<questionTitle>/answer")
 def postAnswer(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
 	author = ""
 	text = request.forms.get('text')
 	try:
-		service.addAnswer(questionTitle,text,author)
+		service.addAnswer(questionTitle,text,author,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -101,11 +104,14 @@ def postAnswer(questionTitle):
 
 @put("/question/<questionTitle>/answer")
 def updateAnswer(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	answerId = request.forms.get('answerID')
 	text = request.forms.get('text')
 	print "update"+str(text)
 	try:
-		service.updateAnswer(questionTitle,answerId,text)
+		service.updateAnswer(questionTitle,answerId,text,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -113,9 +119,12 @@ def updateAnswer(questionTitle):
 
 @delete("/question/<questionTitle>/answer")
 def deleteAnswer(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	answerID = request.forms.get('answerID')
 	try:
-		service.delAnswer(questionTitle,answerID)
+		service.delAnswer(questionTitle,answerID,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -124,32 +133,41 @@ def deleteAnswer(questionTitle):
 ############ comments #########################
 @post("/question/<questionTitle>/comment")
 def postComment(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	author = ""
 	answerID = request.forms.get('answerID')
 	text = request.forms.get('text')
 	try:
-		service.addComment(questionTitle,answerID,text,author)
+		service.addComment(questionTitle,answerID,text,author,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
 
 @put("/question/<questionTitle>/comment")
 def updateComment(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	answerID = request.forms.get('answerID')
 	commentID = request.forms.get("commentID")
 	text = request.forms.get('text')
 	try:
-		service.updateComment(questionTitle,answerID,commentID,text)
+		service.updateComment(questionTitle,answerID,commentID,text,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
 
 @delete("/question/<questionTitle>/comment")
 def deleteComment(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	commentID = request.forms.get("commentID")
 	answerID = request.forms.get('answerID')
 	try:
-		service.deleteComment(questionTitle,answerID,commentID)
+		service.deleteComment(questionTitle,answerID,commentID,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -173,9 +191,12 @@ def viewUser(username):
 ################ VOTES ####################
 @post("/question/<questionTitle>/up")
 def voteUp(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+
 	answerID = request.forms.get("answerID")
 	try:
-		votes = service.voteUp(questionTitle, answerID)
+		votes = service.voteUp(questionTitle, answerID,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -183,9 +204,12 @@ def voteUp(questionTitle):
 
 @post("/question/<questionTitle>/down")
 def voteDown(questionTitle):
+	rid = request.headers.get('Id')
+	response.add_header('RID', rid)
+	
 	answerID = request.forms.get("answerID")
 	try:
-		votes = service.voteDown(questionTitle, answerID)
+		votes = service.voteDown(questionTitle, answerID,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 

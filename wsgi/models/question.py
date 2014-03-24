@@ -1,7 +1,6 @@
 from answer import Answer
 import askExceptions
 from storage.service import StorageService
-
 storage = StorageService()
 
 

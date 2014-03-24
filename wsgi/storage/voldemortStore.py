@@ -1,16 +1,19 @@
 from voldemort import StoreClient
 import json
+import askService
 
 class Storage():	
 	def __init__(self):
 		self.s = StoreClient('test',[('localhost',6666)])
 		
 	def put(self, key, value):
+		rid = askService.reqId
 		value = json.dumps(value, separators=(',',':'))
-		self.s.put(str(key),value,None,'3')
+		self.s.put(str(key),value,None,rid)
 		 
 	def get(self,key):
-		val = self.s.get(str(key),'2')
+		rid = askService.reqId
+		val = self.s.get(str(key),rid)
 		if not val:
 			return None
 		else:
@@ -21,5 +24,6 @@ class Storage():
 
 
 	def delete(self, key):
-		self.s.delete(str(key))
+		rid = askService.reqId
+		self.s.delete(str(key),None,rid)
 
