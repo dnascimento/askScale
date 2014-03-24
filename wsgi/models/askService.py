@@ -1,13 +1,9 @@
-from question import Question
+from models.question import Question
 import askExceptions
 import hashlib
 
-import pymongo
-client = pymongo.MongoClient("localhost", 27017)
-db = client.askInesc
-
 #Singleton
-class Storage:
+class AskService:
 	_instance = None
 	def __new__(cls,*args,**kwargs):
 		if not cls._instance:

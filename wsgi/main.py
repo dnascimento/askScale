@@ -1,6 +1,6 @@
 from bottle import route, run, template, get, post, error, request, put, response, delete, redirect, static_file, default_app
-from storage import *
-import askExceptions
+from askService import *
+import models.askExceptions
 import hashlib
 import pprint
 
@@ -13,7 +13,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-db = Storage()
+service = AskService()
 #GAE - Force bootle
 #import bottle
 # application = bottle.Bottle()
@@ -27,7 +27,7 @@ def index():
 	reqID = request.headers.get('Id')
 	print "req: "+str(reqID)
 	response.add_header('RID', reqID)
-	questionList = db.getQuestionList(20)
+	questionList = service.getQuestionList(20)
 	print questionList
 	return template("index.tpl",name="dario",questionList=questionList)
 
@@ -61,7 +61,7 @@ def postNewQuestion():
 	tags = request.forms.getlist('tags')
 	print "questionTitle"+str(questionTitle)
 	try:
-		question = db.addNewQuestion(questionTitle,text,tags,author)
+		question = service.addNewQuestion(questionTitle,text,tags,author)
 		redirect("/question/"+question.title)
 	except askExceptions.NotExist as e:
 		return error(e)
@@ -69,7 +69,7 @@ def postNewQuestion():
 @delete("/question/<questionTitle>")
 def deleteQuestion(questionTitle):
 	try:
-		db.deleteQuestion(questionTitle)
+		service.deleteQuestion(questionTitle)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/")
@@ -77,7 +77,7 @@ def deleteQuestion(questionTitle):
 @get("/question/<questionTitle>")
 def getQuestion(questionTitle):
 	try:
-		questionData = db.getQuestion(questionTitle)
+		questionData = service.getQuestion(questionTitle)
 	except askExceptions.NotExist as e:
 		return error(e)
 
@@ -93,7 +93,7 @@ def postAnswer(questionTitle):
 	author = ""
 	text = request.forms.get('text')
 	try:
-		db.addAnswer(questionTitle,text,author)
+		service.addAnswer(questionTitle,text,author)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -105,7 +105,7 @@ def updateAnswer(questionTitle):
 	text = request.forms.get('text')
 	print "update"+str(text)
 	try:
-		db.updateAnswer(questionTitle,answerId,text)
+		service.updateAnswer(questionTitle,answerId,text)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -115,7 +115,7 @@ def updateAnswer(questionTitle):
 def deleteAnswer(questionTitle):
 	answerID = request.forms.get('answerID')
 	try:
-		db.delAnswer(questionTitle,answerID)
+		service.delAnswer(questionTitle,answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -128,7 +128,7 @@ def postComment(questionTitle):
 	answerID = request.forms.get('answerID')
 	text = request.forms.get('text')
 	try:
-		db.addComment(questionTitle,answerID,text,author)
+		service.addComment(questionTitle,answerID,text,author)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -139,7 +139,7 @@ def updateComment(questionTitle):
 	commentID = request.forms.get("commentID")
 	text = request.forms.get('text')
 	try:
-		db.updateComment(questionTitle,answerID,commentID,text)
+		service.updateComment(questionTitle,answerID,commentID,text)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -149,7 +149,7 @@ def deleteComment(questionTitle):
 	commentID = request.forms.get("commentID")
 	answerID = request.forms.get('answerID')
 	try:
-		db.deleteComment(questionTitle,answerID,commentID)
+		service.deleteComment(questionTitle,answerID,commentID)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -175,7 +175,7 @@ def viewUser(username):
 def voteUp(questionTitle):
 	answerID = request.forms.get("answerID")
 	try:
-		votes = db.voteUp(questionTitle, answerID)
+		votes = service.voteUp(questionTitle, answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
@@ -185,7 +185,7 @@ def voteUp(questionTitle):
 def voteDown(questionTitle):
 	answerID = request.forms.get("answerID")
 	try:
-		votes = db.voteDown(questionTitle, answerID)
+		votes = service.voteDown(questionTitle, answerID)
 	except askExceptions.NotExist as e:
 		return error(e)
 	redirect("/question/"+questionTitle) 
