@@ -46,7 +46,7 @@ class Question:
 	def getList(self,maxQuestions):
 		objects = []
 		questionList = storage.get("questionList")
-		if questionList is None:
+		if questionList is None or not questionList:
 			return objects
 
 		for key in questionList['val']:

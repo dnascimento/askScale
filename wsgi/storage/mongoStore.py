@@ -1,8 +1,6 @@
 import pymongo
 
-
-
-class MongoStorage():	
+class Storage():	
 	def __init__(self):
 		client = pymongo.MongoClient("localhost", 27017)
 		self.db = client.askInesc

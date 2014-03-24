@@ -1,9 +1,11 @@
-from mongo import MongoStorage
+#from mongoStore import Storage
+from voldemortStore import Storage
+
 
 class StorageService():	
 	def __init__(self):
-		self.s = MongoStorage()
-		
+		self.s = Storage()
+
 	def put(self, key, value):
 		return self.s.put(key,value)
 
