@@ -1,15 +1,14 @@
 from answer import Answer
 import askExceptions
+from storage.service import StorageService
 
-import pymongo
-client = pymongo.MongoClient("localhost", 27017)
-db = client.askInesc
+storage = StorageService()
 
 
 class Question:
 	def __init__(self,title,tags, questionAnswerId, answersIds = [], question_id = None):
 		if question_id is None:
-			self._id = title
+			self._id = "ques_"+title
 		else:
 			self._id = question_id
 		self.title = title
@@ -20,7 +19,7 @@ class Question:
 
 	@classmethod
 	def build(self,title,text,tags,author):
-		exists = db.questions.find_one(title)
+		exists = storage.get(title)
 		if exists is None:
 			answer = Answer.build(author, text,title,True).save()
 			quest = Question(title, tags, answer._id,).save()
@@ -35,7 +34,7 @@ class Question:
 
 	@classmethod
 	def getFromId(self,questionID):
-		question = db.questions.find_one(questionID)
+		question = storage.get(questionID)
 		if question is  None:
 			raise askExceptions.NotExist('question',"Unknown Question:"+str(questionID))
 
@@ -46,11 +45,14 @@ class Question:
 	@classmethod
 	def getList(self,maxQuestions):
 		objects = []
-		#TODO Limiting
-		for obj in db.questions.find():
-			objects.append(Question.fromDictionary(obj))
-		return objects
-	
+		questionList = storage.get("questionList")
+		if questionList is None:
+			return objects
+
+		for key in questionList['val']:
+			obj = self.getFromId(key)
+			objects.append(obj)
+		return objects	
 
 	def LoadAnswers(self):
 		self.question = Answer.getFromId(self.questionAnswerId)
@@ -71,11 +73,16 @@ class Question:
 
 	#delete the comment
 	def delete(self):
+		print "delete"
 		self.getAnswer(self.questionAnswerId).delete()
 		print self.answersIds
 		for answerID in self.answersIds:
 			self.getAnswer(answerID).delete()
-		db.questions.remove(self._id)
+		storage.delete(self._id)
+		questionList = storage.get("questionList")
+		questionList['val'].remove(self._id) 
+		storage.put("questionList",questionList)
+		return self
 
 	def deleteAnswer(self,answerID):
 		try:
@@ -110,9 +117,19 @@ class Question:
 		return Answer.getFromId(answerID)
 		
 	def save(self):
-		objectDict = self.__dict__
-		objectDict['answers'] = None
-		objectDict['question'] = None
-		db.questions.save(objectDict)
+		obj = self.__dict__
+		obj['answers'] = None
+		obj['question'] = None
+		key = obj['_id']
+		storage.put(key,obj)
+
+		questionList = storage.get("questionList")
+		if questionList is None:
+			questionList = {"_id":"questionList","val":[key]}
+		else:
+			if key not in questionList['val']:
+				questionList['val'].append(key) 
+
+		storage.put("questionList",questionList)
 		return self
 	

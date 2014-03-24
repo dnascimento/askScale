@@ -1,15 +1,14 @@
 import hashlib
+from storage.service import StorageService
 
-import pymongo
-client = pymongo.MongoClient("localhost", 27017)
-db = client.askInesc
+storage = StorageService()
 
 class Comment:
 	def __init__(self,text,author,answerID,comment_id = None):
 		if comment_id is None:
 			m = hashlib.md5()
 			m.update(text+author+answerID)
-			self._id = m.hexdigest()
+			self._id = "com_"+m.hexdigest()
 		else:
 			self._id = comment_id
 		self.text = text
@@ -22,7 +21,7 @@ class Comment:
 
 	@classmethod
 	def getFromId(self,commentId):
-		comment = db.comments.find_one(commentId)
+		comment = storage.get(commentId)
 		if comment is not None:
 			comment = Comment.fromDictionary(comment)
 		return comment
@@ -34,7 +33,7 @@ class Comment:
 	######################################################################################
 
 	def delete(self):
-		db.comments.remove(self._id)
+		storage.delete(self._id)
 
 	def update(self,text):
 		self.text = text
@@ -42,5 +41,5 @@ class Comment:
 
 	def save(self):
 		objectDict = self.__dict__
-		db.comments.save(objectDict)		
+		storage.put(objectDict['_id'],objectDict)		
 		return self

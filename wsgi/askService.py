@@ -14,8 +14,8 @@ class AskService:
 	def addNewQuestion(self,title,text,tags,author):
 		return Question.build(title,text,tags,author)
 
-	def getQuestion(self,questionId):
-		return Question.getFromId(questionId)
+	def getQuestion(self,questionTitle):
+		return Question.getFromId("ques_"+questionTitle)
 
 	def deleteQuestion(self,questionTitle):
 		self.getQuestion(questionTitle).delete()

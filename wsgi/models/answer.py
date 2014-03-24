@@ -1,18 +1,17 @@
 from comment import Comment
 import askExceptions
 import hashlib
+from storage.service import StorageService
 
-import pymongo
-client = pymongo.MongoClient("localhost", 27017)
-db = client.askInesc
+storage = StorageService()
 
-
+		
 class Answer:
 	def __init__(self,author,text,questionTitle, isQuestion,votes = 0,commentsIds = [],answer_id = None):
 		if answer_id is None:
 			m = hashlib.md5()
 			m.update(text+author+questionTitle)
-			self._id = m.hexdigest()
+			self._id = "ans_"+m.hexdigest()
 		else:
 			self._id = answer_id
 
@@ -28,7 +27,7 @@ class Answer:
 
 	@classmethod
 	def getFromId(self,answerId):
-		answer = db.answers.find_one(answerId)
+		answer = storage.get(answerId)
 		if answer is not None:
 			answer = Answer.fromDictionary(answer)
 			answer.LoadComments()
@@ -75,7 +74,7 @@ class Answer:
 	def delete(self):
 		for comment in self.comments:
 			comment.delete()
-		db.answers.remove(self._id)
+		storage.delete(self._id)
 
 	def getComment(self,commentID):
 		for comment in self.comments:
@@ -88,7 +87,7 @@ class Answer:
 	def save(self):
 		objectDict = self.__dict__
 		objectDict['comments'] = None
-		db.answers.save(objectDict)
+		storage.put(objectDict['_id'],objectDict)
 		return self
 
 

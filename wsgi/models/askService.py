@@ -1,6 +1,9 @@
 from models.question import Question
 import askExceptions
 import hashlib
+from storage.service import StorageService
+
+storage = StorageService()
 
 #Singleton
 class AskService:

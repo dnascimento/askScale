@@ -1,6 +1,6 @@
 from bottle import route, run, template, get, post, error, request, put, response, delete, redirect, static_file, default_app
 from askService import *
-import models.askExceptions
+from models import askExceptions
 import hashlib
 import pprint
 
