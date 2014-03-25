@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
+				"ques",
+				"questionList	statement"
+			],
+			[
+				"question",
+				"questionList	statement"
+			],
+			[
+				"answe",
+				"answerId"
+			],
+			[
 				"answers",
 				"answersIds"
 			],
 			[
 				"get",
 				"getFromId	function"
-			],
-			[
-				"answe",
-				"answerID"
 			],
 			[
 				"quest",
@@ -58,14 +66,6 @@
 			[
 				"ans",
 				"answersIds	param"
-			],
-			[
-				"question",
-				"questionTitle	param"
-			],
-			[
-				"ques",
-				"question"
 			],
 			[
 				"answ",
@@ -519,6 +519,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/darionascimento/git/undo/src/main/resources/dbNode-undo.proto",
+			"settings":
+			{
+				"buffer_size": 313,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "----------------------------------------------\nJIRA 6.2.1-#6256 README\n----------------------------------------------\n\nThank you for downloading JIRA 6.2.1. This distribution comes with a\nbuilt-in Tomcat 7.0.47 application server, so it runs (almost)\nout of the box.\n\nBRIEF INSTALL GUIDE\n-------------------\n\n1. Install Oracle's (formerly Sun's) Java Development Kit (JDK) or\n   Java Runtime Environment (JRE) version 1.6 or above:\n\n   http://www.oracle.com/technetwork/java/javase/downloads/index.html\n\n2. Set the JAVA_HOME variable to where you installed Java. The Windows\n   and Linux installers will do this for you. See the following instructions\n   for details:\n\n   http://docs.atlassian.com/jira/docs-062/Installing+Java\n\n3. Set your JIRA Home Directory.\n   Instructions on how to set your JIRA Home Directory can be found here:\n\n   http://docs.atlassian.com/jira/docs-062/Setting+your+JIRA+Home+Directory\n\n4. Run 'bin\\start-jira.bat' (for Windows) or 'bin/start-jira.sh' (for Linux/Solaris)\n   to start JIRA. Check that there are no errors on the console. See below for\n   troubleshooting advice.\n\n5. Point your browser at http://localhost:8080/\n   You should see JIRA's Setup Wizard.\n\nFull documentation is available online at:\n\nhttp://docs.atlassian.com/jira/docs-062/Installing+JIRA\n\n\nPROBLEMS?\n---------\n\nA common startup problem is when another program has claimed port 8080, which\nJIRA is configured to run on by default. To avoid this port conflict, JIRA's\nport can be changed in conf/server.xml.\n\nIf you encounter any problems, please create a support request at:\nhttp://support.atlassian.com\n\n\nQUESTIONS?\n----------\n\nQuestions? Try the docs at:\n\nhttp://docs.atlassian.com/jira/docs-062/\n\nor ask at Atlassian Answers for JIRA:\n\nhttps://answers.atlassian.com/tags/jira\n\n\n-----------------------------------------------------------\nHappy issue tracking and thank you for using JIRA!\n- The Atlassian Team\n-----------------------------------------------------------\n",
+			"file": "/Users/darionascimento/Downloads/atlassian-jira-6.2.1-standalone/README.txt",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1978,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Applications/jira/atlassian-jira/WEB-INF/classes/jira-application.properties",
+			"settings":
+			{
+				"buffer_size": 169,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -628,6 +655,49 @@
 	},
 	"file_history":
 	[
+		"/Applications/jira/conf/logging.properties",
+		"/Users/darionascimento/Downloads/atlassian-jira-6.2.1-standalone/README.txt",
+		"/Users/darionascimento/git/voldemort/src/proto/dbNode-undo.proto",
+		"/Users/darionascimento/git/voldemort/src/proto/voldemort-client.proto",
+		"/Users/darionascimento/git/undo/src/main/resources/dbNode-undo.proto",
+		"/Users/darionascimento/git/voldemort/src/proto/voldemort-admin.proto",
+		"/Users/darionascimento/git/undo/src/main/resources/undo_database.proto",
+		"/Users/darionascimento/git/voldemort/src/proto/slop.proto",
+		"/Users/darionascimento/git/undo/src/main/resources/undo_proxy.proto",
+		"/Users/darionascimento/git/undo/README.md",
+		"/Users/darionascimento/git/app/wsgi/storage/voldemortStore.py",
+		"/Users/darionascimento/git/app/wsgi/main.py",
+		"/Users/darionascimento/git/app/wsgi/askService.py",
+		"/Users/darionascimento/git/app/wsgi/models/question.py",
+		"/Users/darionascimento/git/voldemort/clients/python/voldemort/client.py",
+		"/Users/darionascimento/Tese/Project/Arquitectura/dependencias Voldemort.txt",
+		"/Volumes/DataDisk/Torrents/ESET SMART SECURITY 7 x32x64 [HYPERDRIVE25]/Instructions For TNOD [Online Method].txt",
+		"/Users/darionascimento/Downloads/protobuf-2.5.0/README.txt",
+		"/Users/darionascimento/Downloads/protobuf-2.5.0/java/README.txt",
+		"/Users/darionascimento/git/voldemort/clients/python/voldemort/protocol/voldemort_client_pb2.py",
+		"/Users/darionascimento/git/voldemort/clients/python/voldemort/protocol/voldemort_admin_pb2.py",
+		"/Users/darionascimento/git/app/wsgi/views/error.tpl",
+		"/Users/darionascimento/git/app/wsgi/views/question.tpl",
+		"/Users/darionascimento/git/voldemort/clients/python/voldemort/serialization/string_serializer.py",
+		"/Users/darionascimento/git/voldemort/clients/python/voldemort/protocol/slop_pb2.py",
+		"/Users/darionascimento/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/darionascimento/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/darionascimento/Tese/Project/Arquitectura/service.py",
+		"/Users/darionascimento/git/app/wsgi/storage/test_client.py",
+		"/Users/darionascimento/git/app/.gitignore",
+		"/Users/darionascimento/git/app/wsgi/static/ask.js",
+		"/Users/darionascimento/git/app/wsgi/storage/service.py",
+		"/Users/darionascimento/git/app/wsgi/storage/mongo.py",
+		"/Users/darionascimento/git/voldemort-python/main.py",
+		"/Users/darionascimento/git/app/setup.py",
+		"/Users/darionascimento/git/app/wsgi/models/answer.py",
+		"/Users/darionascimento/git/app/wsgi/storageService.py",
+		"/Users/darionascimento/git/app/wsgi/models/comment.py",
+		"/Users/darionascimento/git/app/wsgi/models/askService.py",
+		"/Users/darionascimento/git/app/wsgi/storage/voldemort_service.py",
+		"/Users/darionascimento/git/app/wsgi/storage/storage.py",
+		"/Users/darionascimento/git/app/wsgi/storage/storage_service.py",
+		"/Users/darionascimento/git/app/wsgi/storage/mongo_service.py",
 		"/Volumes/DataDisk/Documents/IST - MERC/1º Ano 2º Semestre/AISS/AISS/lab1/source/aes/src/AES.java",
 		"/Volumes/DataDisk/Documents/IST - MERC/1º Ano 2º Semestre/AISS/project/grupo2/AISSProject/src/aiss/sender/Sender.java",
 		"/Users/darionascimento/git/appEngine/wsgi/comment.py",
@@ -712,50 +782,7 @@
 		"/Users/darionascimento/git/ask/app.py",
 		"/Users/darionascimento/git/ask/views/index.tpl",
 		"/Users/darionascimento/git/ask/questions.py",
-		"/Users/darionascimento/git/ask/views/question.tpl",
-		"/Users/darionascimento/git/ask/votes.py",
-		"/Users/darionascimento/git/ask/user.py",
-		"/Users/darionascimento/git/ask/views/answer.tpl",
-		"/Users/darionascimento/git/ask/comments.py",
-		"/Users/darionascimento/git/ask/views/newQuestion.tpl",
-		"/Users/darionascimento/git/ask/views/base.tpl",
-		"/Users/darionascimento/git/ask/Storage.py",
-		"/Users/darionascimento/git/ask/views/header.tpl",
-		"/Users/darionascimento/git/ask/views/footer.tpl",
-		"/Users/darionascimento/git/ask/static/ask.js",
-		"/Users/darionascimento/git/ask/app.pt",
-		"/Volumes/DataDisk/Documents/eduze base/Eduze/backend/modules.txt",
-		"/Users/darionascimento/git/appEngine/guestbook.py",
-		"/Volumes/DataDisk/appscale/Vagrantfile",
-		"/Users/darionascimento/git/appEngine/helloworld.py",
-		"/Users/darionascimento/git/askbot-devel/askbot/migrations/0099_auto__del_field_thread_accepted_answer__del_field_anonymousanswer_ques.py",
-		"/Users/darionascimento/git/askbot-devel/askbot/migrations/0055_auto__chg_field_question_thread.py",
-		"/Users/darionascimento/git/askbot-devel/askbot/migrations/0080_transplant_favquestions_2.py",
-		"/Users/darionascimento/git/askbot-devel/askbot/migrations/0093_auto__del_field_vote_content_type__del_field_vote_object_id__chg_field.py",
-		"/Users/darionascimento/git/Voldemort-Client/voldemort/clients/python/README",
-		"/Users/darionascimento/Downloads/askbot-devel-master/setup.py",
-		"/Volumes/DataDisk/Torrents/Nymphomaniac.Volume.I.2014.720p.BRRip.Xvid.AC3.SANTi/NFO.txt",
-		"/Users/darionascimento/Tese/Project/stuff/Aplicacao/Usage of NoSQL.txt",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/views/layout.jade",
-		"/Users/darionascimento/git/darionascimento.com/darionascimento.com/views/index.jade",
-		"/Users/darionascimento/Desktop/dario.html",
-		"/Users/darionascimento/git/Voldemort-Client/voldemort/HOW TO",
-		"/Users/darionascimento/git/Voldemort-Client/voldemort/USE",
-		"/Users/darionascimento/.bash_profile",
-		"/Users/darionascimento/git/Voldemort-Client/voldemort/README.md",
-		"/Users/darionascimento/Desktop/security.bash",
-		"/Users/darionascimento/Desktop/bash_profile",
-		"/Users/darionascimento/Downloads/apache-ant-1.9.3/INSTALL",
-		"/Users/darionascimento/Downloads/voldemort/README.md",
-		"/Users/darionascimento/git/Voldemort/src/ClientExample.java",
-		"/Users/darionascimento/git/Voldemort/voldemort/release_notes.txt",
-		"/Users/darionascimento/git/Voldemort/voldemort/README.md",
-		"/Users/darionascimento/Tese/Project/stuff/Usage of NoSQL.txt",
-		"/Users/darionascimento/Tese/Numbers Everyone Should Know.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/redo.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/3.Recovery.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/Defense Lines.txt",
-		"/Users/darionascimento/Tese/Project/Arquitectura/Parts/4.Checkpoint.txt"
+		"/Users/darionascimento/git/ask/views/question.tpl"
 	],
 	"find":
 	{
@@ -782,6 +809,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jira.home",
+			"rid",
+			"):",
+			"RID",
+			"rid",
+			"bytes rid",
+			"rid",
+			"GetRequest",
+			"_execute_request",
+			"type",
+			"key",
+			"get",
+			"VoldemortRequest",
+			"_get_with_connection",
+			"apply",
+			"_execute_request",
+			"get",
+			".get",
+			"addNewQuestion",
+			"question.py",
+			"voldemort",
+			"getQuestion",
+			"deleteQuestion",
+			"getFromId",
+			"getQuestion",
+			"ques_",
+			"questionList",
+			"id",
+			"db.",
+			"delete",
+			"db.",
+			"db",
 			"AES",
 			"aes",
 			"deleteComment",
@@ -877,39 +936,7 @@
 			"admin",
 			"console.",
 			"CATEGORIES",
-			"user",
-			"article",
-			"articleArea",
-			"div.copyright",
-			"content",
-			";",
-			"\\{",
-			"\\}",
-			"}",
-			"{ ",
-			"{",
-			"session",
-			"app",
-			"categories",
-			"3000",
-			"faf9f",
-			"faf9f6",
-			"gene",
-			"content_",
-			"generic_",
-			"getAlbuns",
-			"getContentFromTop",
-			"album/",
-			"getAllContentAlbum",
-			"$(\"#newsImg\").attr(\"src\",host+\":8000/\");",
-			"audioImg",
-			"error",
-			"media_content",
-			"getAllSubcategoriesNames",
-			"getContentFromSubcategory",
-			"getContentFromSubcategory\ngetContentFromSubcategory",
-			"getContentFromSubcategory",
-			"subcategory"
+			"user"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -917,6 +944,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			",rid):\n		global reqId\n		reqId = rid",
+			"string rid",
+			"key",
 			"getQuestion",
 			"questionTitle",
 			"/\"",
@@ -999,14 +1029,308 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "/Users/darionascimento/git/appEngine"
+			"path": "/Users/darionascimento/git/app"
 		}
 	],
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/darionascimento/git/undo/src/main/resources/dbNode-undo.proto",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/darionascimento/Downloads/atlassian-jira-6.2.1-standalone/README.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								964,
+								969
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"is_xml": false,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Applications/jira/atlassian-jira/WEB-INF/classes/jira-application.properties",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								168,
+								168
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/JavaProperties.tmLanguage"
+						},
+						"translation.x": 25.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1048,7 +1372,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 66.0
+		"height": 118.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1056,6 +1380,74 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"vol",
+				"wsgi/storage/voldemortStore.py"
+			],
+			[
+				"qu",
+				"wsgi/models/question.py"
+			],
+			[
+				"vo",
+				"wsgi/storage/voldemortStore.py"
+			],
+			[
+				"asks",
+				"wsgi/askService.py"
+			],
+			[
+				"que",
+				"wsgi/models/question.py"
+			],
+			[
+				"serv",
+				"wsgi/storage/service.py"
+			],
+			[
+				"mai",
+				"wsgi/main.py"
+			],
+			[
+				"ser",
+				"wsgi/askService.py"
+			],
+			[
+				"s",
+				"wsgi/askService.py"
+			],
+			[
+				"",
+				"wsgi/models/question.py"
+			],
+			[
+				"mon",
+				"wsgi/storage/mongo.py"
+			],
+			[
+				"quest",
+				"wsgi/models/question.py"
+			],
+			[
+				"ques",
+				"wsgi/views/question.tpl"
+			],
+			[
+				"askservice.py",
+				"wsgi/askService.py"
+			],
+			[
+				"ans",
+				"wsgi/models/answer.py"
+			],
+			[
+				"main",
+				"wsgi/main.py"
+			],
+			[
+				"storage",
+				"wsgi/storageService.py"
+			],
 			[
 				"st",
 				"wsgi/storage.py"
@@ -1073,20 +1465,8 @@
 				"wsgi/answer.py"
 			],
 			[
-				"que",
-				"wsgi/question.py"
-			],
-			[
-				"ans",
-				"wsgi/answer.py"
-			],
-			[
 				"a",
 				"wsgi/answer.py"
-			],
-			[
-				"s",
-				"wsgi/storage.py"
 			],
 			[
 				"q",
@@ -1105,24 +1485,12 @@
 				"wsgi/main.py"
 			],
 			[
-				"qu",
-				"wsgi/question.py"
-			],
-			[
 				"inde",
 				"wsgi/views/index.tpl"
 			],
 			[
-				"mai",
-				"wsgi/main.py"
-			],
-			[
 				".tpl",
 				"wsgi/views/newQuestion.tpl"
-			],
-			[
-				"ques",
-				"wsgi/views/question.tpl"
 			],
 			[
 				"so",
@@ -1135,14 +1503,6 @@
 			[
 				"comme",
 				"wsgi/comment.py"
-			],
-			[
-				"main",
-				"wsgi/main.py"
-			],
-			[
-				"quest",
-				"wsgi/views/question.tpl"
 			],
 			[
 				"as",
@@ -1158,10 +1518,6 @@
 			],
 			[
 				"ex",
-				"wsgi/exceptions.py"
-			],
-			[
-				"",
 				"wsgi/exceptions.py"
 			],
 			[
@@ -1535,38 +1891,6 @@
 			[
 				"audo",
 				"backend/app/templates/audio_page.html"
-			],
-			[
-				"p",
-				"backend/app/templates/snippets/popup.html"
-			],
-			[
-				"cont",
-				"backend/app/templates/contact.html"
-			],
-			[
-				"page",
-				"backend/app/templates/generic_page.html"
-			],
-			[
-				"br",
-				"backend/app/templates/snippets/breadcump.html"
-			],
-			[
-				"vid",
-				"backend/app/templates/video_page.html"
-			],
-			[
-				"po",
-				"backend/app/templates/snippets/popup.html"
-			],
-			[
-				"conta",
-				"backend/app/templates/contact.html"
-			],
-			[
-				"bac",
-				"backend/app/templates/snippets/back_header.html"
 			]
 		],
 		"width": 0.0

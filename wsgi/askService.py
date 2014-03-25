@@ -12,16 +12,20 @@ class AskService:
 			cls._instance = super(Singleton,cls).__new__(cls, *args, **kwargs)
 		return cls._instance
 
+
+	def getQuestion(self,questionTitle):
+		return Question.getFromId("ques_"+questionTitle)
+
 	############### Question #####################
 	def addNewQuestion(self,title,text,tags,author,rid):
 		global reqId
 		reqId = rid
 		return Question.build(title,text,tags,author)
 
-	def getQuestion(self,questionTitle,rid):
+	def getQuestionData(self,questionTitle,rid):
 		global reqId
 		reqId = rid
-		return Question.getFromId("ques_"+questionTitle)
+		return self.getQuestion(questionTitle)
 
 	def deleteQuestion(self,questionTitle,rid):
 		global reqId

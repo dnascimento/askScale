@@ -78,7 +78,7 @@ def getQuestion(questionTitle):
 	rid = request.headers.get('Id')
 	response.add_header('RID', rid)
 	try:
-		questionData = service.getQuestion(questionTitle,rid)
+		questionData = service.getQuestionData(questionTitle,rid)
 	except askExceptions.NotExist as e:
 		return error(e)
 
